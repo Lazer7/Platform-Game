@@ -11,7 +11,7 @@ class SDLWindow
         SDLWindow(int,int,std::string);
         virtual ~SDLWindow();
         bool init();
-        bool loadMedia();
+        SDL_Surface* loadMedia(std:: string);
         SDL_Surface* getSurface();
         SDL_Window* getWindow();
         SDL_Surface* getPicture();

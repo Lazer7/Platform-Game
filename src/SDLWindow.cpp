@@ -52,20 +52,15 @@ bool SDLWindow:: init(){
     }
     return success;
 }
-bool SDLWindow::loadMedia()
+SDL_Surface* SDLWindow::loadMedia(std::string path)
 {
-    //Loading success flag
-    bool success = true;
-
     //Load splash image
-    this->picture = SDL_LoadBMP( "D:\\Code\\C++ Projects\\Platform-Game\\assets\\test.bmp" );
+    this->picture = SDL_LoadBMP(path.c_str());
     if( this->picture == NULL )
     {
         printf( "Unable to load image %s! SDL Error: %s\n", "image", SDL_GetError() );
-        success = false;
     }
-
-    return success;
+    return this->picture;
 }
 
 SDL_Surface* SDLWindow:: getSurface(){
