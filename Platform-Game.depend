@@ -1,7 +1,10 @@
 # depslib dependency file v1.0
-1527377333 source:d:\code\c++ projects\platform-game\main.cpp
+1527379864 source:d:\code\c++ projects\platform-game\main.cpp
 	<SDL.h>
 	<stdio.h>
+	<iostream>
+	<string>
+	"SDLWindow.h"
 
 1519925811 d:\code\c++ projects\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -336,4 +339,14 @@
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
+
+1527380353 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+	"SDLWindow.h"
+	<string>
+	<bits/stdc++.h>
+
+1527379833 d:\code\c++ projects\platform-game\include\sdlwindow.h
+	<string>
+	<SDL.h>
+	<stdio.h>
 

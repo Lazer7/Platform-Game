@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -36,6 +38,9 @@
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add directory="D:/Code/C++ Projects/SDL2-2.0.8/i686-w64-mingw32/lib" />
 		</Linker>
+		<Unit filename="Main.cpp" />
+		<Unit filename="include/SDLWindow.h" />
+		<Unit filename="src/SDLWindow.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

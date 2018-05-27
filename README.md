@@ -15,4 +15,8 @@ Then in the codeblock's project files please set up the SDL2 locations to where 
 More information on how to set up SDL2 in CodeBlocks is here
 http://lazyfoo.net/tutorials/SDL/01_hello_SDL/windows/codeblocks/index.php
 
-
+# Folders
+> Assets
+Image Contain
+> bin
+Debug/Release executables
