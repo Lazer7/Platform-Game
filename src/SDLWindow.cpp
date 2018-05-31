@@ -1,7 +1,5 @@
 #include "SDLWindow.h"
-#include <string>
-#include <bits/stdc++.h>
-using namespace std;
+
 SDLWindow::SDLWindow(int width, int height, std::string title)
 {
     //ctor
@@ -20,37 +18,43 @@ SDLWindow::~SDLWindow()
     SDL_DestroyWindow( this->window );
     this->window = NULL;
 
+    SDL_DestroyRenderer(this->renderer);
+
     //Quit SDL subsystems
     SDL_Quit();
     //dtor
 }
 bool SDLWindow:: init(){
-    //Initialization flag
-    bool success = true;
-    //Initialize SDL
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+
+    if( SDL_Init(SDL_INIT_EVERYTHING) == 0 )
     {
-        printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
-        success = false;
-    }
-    else
-    {
-        char title_array[this->title.length()+1];
-        strcpy(title_array, this->title.c_str());
+        this->isRunning=true;
         //Create window
-        this->window = SDL_CreateWindow( title_array, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, this->screen_width, this->screen_height, SDL_WINDOW_SHOWN );
-        if( this->window== NULL )
-        {
-            printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
-            success = false;
-        }
-        else
+        this->window = SDL_CreateWindow( title.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, this->screen_width, this->screen_height, SDL_WINDOW_SHOWN );
+        if( this->window != NULL )
         {
             //Get window surface
             this->screen_surface = SDL_GetWindowSurface( this->window );
         }
+        else
+        {
+            printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
+            this->isRunning = false;
+        }
+        this->renderer = SDL_CreateRenderer(this->window, -1 ,0);
+        if(this->renderer != NULL){
+            SDL_SetRenderDrawColor(this->renderer,255,255,255,255);
+            printf("Render has been created");
+        }
+        else{
+            this->isRunning = false;
+        }
     }
-    return success;
+    else
+    {
+        printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
+        this->isRunning = false;
+    }
 }
 SDL_Surface* SDLWindow::loadMedia(std::string path)
 {
@@ -61,6 +65,27 @@ SDL_Surface* SDLWindow::loadMedia(std::string path)
         printf( "Unable to load image %s! SDL Error: %s\n", "image", SDL_GetError() );
     }
     return this->picture;
+}
+
+void SDLWindow:: handleEvents(){
+    SDL_Event event;
+    SDL_PollEvent(&event);
+    switch(event.type){
+    case SDL_QUIT:
+        isRunning=false;
+        break;
+        default:
+        break;
+    }
+}
+
+void SDLWindow:: render()
+{
+    SDL_RenderClear(this->renderer);
+    SDL_RenderPresent(this->renderer);
+}
+void SDLWindow:: delay(int milliseconds){
+    SDL_Delay(milliseconds);
 }
 
 SDL_Surface* SDLWindow:: getSurface(){

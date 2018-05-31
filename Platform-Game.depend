@@ -1,7 +1,6 @@
 # depslib dependency file v1.0
-1527408379 source:d:\code\c++ projects\platform-game\main.cpp
-	<SDL.h>
-	<stdio.h>
+1527736905 source:d:\code\c++ projects\platform-game\main.cpp
+	"SDLWindow.h"
 	<string>
 	"KeyPressSurfaces.h"
 
@@ -339,15 +338,20 @@
 	"begin_code.h"
 	"close_code.h"
 
-1527406910 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1527802665 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
-	<string>
-	<bits/stdc++.h>
 
-1527407055 d:\code\c++ projects\platform-game\include\sdlwindow.h
+1527736723 d:\code\c++ projects\platform-game\include\sdlwindow.h
 	<string>
 	<SDL.h>
 	<stdio.h>
+	<bits/stdc++.h>
 
 1527406711 d:\code\c++ projects\platform-game\include\keypresssurfaces.h
+
+1519936451 d:\code\c++ projects\sdl2_image-2.0.3\i686-w64-mingw32\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
 
