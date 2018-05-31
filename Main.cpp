@@ -11,9 +11,11 @@ int main( int argc, char* args[] )
 {
     SDLWindow game(SCREEN_WIDTH,SCREEN_HEIGHT,GAME_TITLE);
     game.init();
+    game.loadMedia("./assets/test.bmp");
     while(game.running()){
         game.handleEvents();
         game.render();
+        game.update();
         game.delay(80);
     }
 

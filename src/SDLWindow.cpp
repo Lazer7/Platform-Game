@@ -56,15 +56,15 @@ bool SDLWindow:: init(){
         this->isRunning = false;
     }
 }
-SDL_Surface* SDLWindow::loadMedia(std::string path)
+void SDLWindow::loadMedia(std::string path)
 {
     //Load splash image
     this->picture = SDL_LoadBMP(path.c_str());
     if( this->picture == NULL )
     {
         printf( "Unable to load image %s! SDL Error: %s\n", "image", SDL_GetError() );
+        this->isRunning = false;
     }
-    return this->picture;
 }
 
 void SDLWindow:: handleEvents(){
@@ -81,19 +81,17 @@ void SDLWindow:: handleEvents(){
 
 void SDLWindow:: render()
 {
-    SDL_RenderClear(this->renderer);
-    SDL_RenderPresent(this->renderer);
+    //SDL_RenderClear(this->renderer);
+    //SDL_RenderPresent(this->renderer);
+    SDL_BlitSurface( this->picture, NULL, this->screen_surface, NULL );
+    SDL_UpdateWindowSurface( this->window );
 }
+void SDLWindow:: update(){
+    printf("FOREVER LOOP");
+}
+
+
 void SDLWindow:: delay(int milliseconds){
     SDL_Delay(milliseconds);
 }
 
-SDL_Surface* SDLWindow:: getSurface(){
-    return this->screen_surface;
-}
-SDL_Window* SDLWindow:: getWindow(){
-    return this->window;
-}
-SDL_Surface* SDLWindow:: getPicture(){
-    return this->picture;
-}

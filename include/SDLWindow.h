@@ -13,12 +13,11 @@ class SDLWindow
         bool init();
         void handleEvents();
         void render();
-        SDL_Surface* loadMedia(std:: string);
-        SDL_Surface* getSurface();
-        SDL_Window* getWindow();
-        SDL_Surface* getPicture();
-        void delay(int);
+        void update();
         bool running(){return isRunning;}
+
+        void loadMedia(std:: string);
+        void delay(int);
     protected:
 
     private:
