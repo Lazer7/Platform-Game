@@ -8,9 +8,8 @@ class SDLWindow
 {
     public:
         SDLWindow();
-        SDLWindow(int,int,std::string);
         virtual ~SDLWindow();
-        bool init();
+        bool init(int,int,std:: string,bool);
         void handleEvents();
         void render();
         void update();
@@ -21,9 +20,6 @@ class SDLWindow
     protected:
 
     private:
-        int screen_width;
-        int screen_height;
-        std:: string title;
         SDL_Window* window;
         SDL_Renderer* renderer;
         SDL_Surface* screen_surface = NULL;

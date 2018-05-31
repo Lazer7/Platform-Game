@@ -1,13 +1,7 @@
 #include "SDLWindow.h"
-
-SDLWindow::SDLWindow(int width, int height, std::string title)
+SDLWindow::SDLWindow()
 {
-    //ctor
-    this->screen_width = width;
-    this->screen_height = height;
-    this->title=title;
 }
-
 SDLWindow::~SDLWindow()
 {
     //Deallocate surface
@@ -24,13 +18,13 @@ SDLWindow::~SDLWindow()
     SDL_Quit();
     //dtor
 }
-bool SDLWindow:: init(){
+bool SDLWindow:: init(int width,int height,std::string title,bool fullscreen){
 
     if( SDL_Init(SDL_INIT_EVERYTHING) == 0 )
     {
         this->isRunning=true;
         //Create window
-        this->window = SDL_CreateWindow( title.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, this->screen_width, this->screen_height, SDL_WINDOW_SHOWN );
+        this->window = SDL_CreateWindow( title.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, fullscreen );
         if( this->window != NULL )
         {
             //Get window surface
