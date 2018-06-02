@@ -8,14 +8,13 @@ const char GAME_TITLE[] = "Platform Game";
 
 int main( int argc, char* args[] )
 {
-    SDLWindow game;
-    game.init(SCREEN_WIDTH,SCREEN_HEIGHT,GAME_TITLE,true);
+    SDLWindow game(SCREEN_WIDTH,SCREEN_HEIGHT,GAME_TITLE,false);
     game.loadMedia("./assets/test.bmp");
     while(game.running()){
         game.handleEvents();
         game.render();
         game.update();
-        game.delay(80);
+        game.delay(10);
     }
 
     game.~SDLWindow();

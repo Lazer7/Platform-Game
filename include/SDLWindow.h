@@ -1,15 +1,16 @@
 #ifndef SDLWINDOW_H
 #define SDLWINDOW_H
+
+#include <stdio.h>
 #include <string>
 #include <SDL.h>
-#include <stdio.h>
-#include <bits/stdc++.h>
+#include <SDL_image.h>
+
 class SDLWindow
 {
     public:
-        SDLWindow();
+        SDLWindow(int,int,std:: string,bool);
         virtual ~SDLWindow();
-        bool init(int,int,std:: string,bool);
         void handleEvents();
         void render();
         void update();
