@@ -24,11 +24,10 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
             printf( "Something could not be created! SDL_Error: %s\n", SDL_GetError() );
             this->isRunning = false;
         }
-        SDL_Surface* tempSurface = IMG_Load("assets/up.bmp");
-        playerTex = SDL_CreateTextureFromSurface(renderer, tempSurface);
-        tempSurface = IMG_Load("assets/test.bmp");
-        background = SDL_CreateTextureFromSurface(renderer,tempSurface);
-        SDL_FreeSurface(tempSurface);
+        background = TextureManager::loadTexture("assets/test.bmp",this->renderer);
+        playerTex  = TextureManager::loadTexture("assets/up.bmp",this->renderer);
+
+        Protagonist x("assets/down.bmp",this->renderer);
     }
     else
     {
@@ -38,9 +37,6 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
 }
 SDLWindow::~SDLWindow()
 {
-    //Deallocate surface
-    SDL_FreeSurface( this->picture );
-    this->picture = NULL;
 
     //Destroy window
     SDL_DestroyWindow( this->window );
@@ -52,16 +48,7 @@ SDLWindow::~SDLWindow()
     SDL_Quit();
     //dtor
 }
-void SDLWindow::loadMedia(std::string path)
-{
-    //Load splash image
-    this->picture = SDL_LoadBMP(path.c_str());
-    if( this->picture == NULL )
-    {
-        printf( "Unable to load image %s! SDL Error: %s\n", "image", SDL_GetError() );
-        this->isRunning = false;
-    }
-}
+
 
 void SDLWindow:: handleEvents(){
     SDL_Event event;
@@ -87,12 +74,16 @@ void SDLWindow:: update(){
     destR.h = 32;
     destR.w = 32;
     destR.x = cnt;
-    destR.y=cnt;
-    printf("FOREVER LOOP");
+    destR.y = cnt;
 }
 
 
-void SDLWindow:: delay(int milliseconds){
-    SDL_Delay(milliseconds);
+void SDLWindow:: capFrameRate(int FPS, int frameStart){
+    int frameTime = SDL_GetTicks() - frameStart;
+
+    printf("Frame Started %d\n", frameStart );
+    if((1000/FPS)> frameTime){
+        SDL_Delay((1000/FPS) - frameTime);
+    }
 }
 

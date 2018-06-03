@@ -42,9 +42,16 @@
 			<Add directory="D:/Code/C++ Projects/SDL2_image-2.0.3/i686-w64-mingw32/lib" />
 		</Linker>
 		<Unit filename="Main.cpp" />
+		<Unit filename="assets/down.bmp" />
+		<Unit filename="assets/left.bmp" />
+		<Unit filename="assets/right.bmp" />
+		<Unit filename="assets/test.bmp" />
+		<Unit filename="assets/up.bmp" />
 		<Unit filename="include/KeyPressSurfaces.h" />
 		<Unit filename="include/SDLWindow.h" />
+		<Unit filename="include/TextureManager.h" />
 		<Unit filename="src/SDLWindow.cpp" />
+		<Unit filename="src/TextureManager.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

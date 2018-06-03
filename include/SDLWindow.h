@@ -5,6 +5,8 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_image.h>
+#include "TextureManager.h"
+#include "Protagonist.h"
 
 class SDLWindow
 {
@@ -17,14 +19,14 @@ class SDLWindow
         bool running(){return isRunning;}
 
         void loadMedia(std:: string);
-        void delay(int);
+        void capFrameRate(int,int);
     protected:
 
     private:
         SDL_Window* window;
         SDL_Renderer* renderer;
         SDL_Surface* screen_surface = NULL;
-        SDL_Surface* picture = NULL;
+
         bool isRunning;
 };
 
