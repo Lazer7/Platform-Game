@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1528061988 source:d:\code\c++ projects\platform-game\main.cpp
+1528180655 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
 	"KeyPressSurfaces.h"
 
@@ -337,7 +337,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1528062040 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1528180815 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
 
 1528062002 d:\code\c++ projects\platform-game\include\sdlwindow.h
@@ -363,7 +363,7 @@
 1528060213 source:d:\code\c++ projects\platform-game\src\texturemanager.cpp
 	"TextureManager.h"
 
-1528062224 d:\code\c++ projects\platform-game\include\gameobject.h
+1528062515 d:\code\c++ projects\platform-game\include\gameobject.h
 	<SDL.h>
 	<SDL_image.h>
 	"TextureManager.h"
@@ -371,9 +371,11 @@
 1528061529 source:d:\code\c++ projects\platform-game\src\gameobject.cpp
 	"GameObject.h"
 
-1528062249 d:\code\c++ projects\platform-game\include\protagonist.h
+1528182287 d:\code\c++ projects\platform-game\include\protagonist.h
 	<GameObject.h>
+	<SDL_thread.h>
 
-1528062071 source:d:\code\c++ projects\platform-game\src\protagonist.cpp
+1528181684 source:d:\code\c++ projects\platform-game\src\protagonist.cpp
 	"Protagonist.h"
+	<stdio.h>
 

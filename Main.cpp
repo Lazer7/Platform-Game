@@ -15,7 +15,7 @@ int main( int argc, char* args[] )
         game.handleEvents();
         game.render();
         game.update();
-        game.capFrameRate(30,frameStart);
+        game.capFrameRate(60,frameStart);
     }
 
     game.~SDLWindow();

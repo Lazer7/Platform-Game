@@ -1,12 +1,10 @@
 #include "SDLWindow.h"
 
 SDL_Texture* background;
-SDL_Texture* playerTex;
-SDL_Rect scrR, destR;
-int cnt=0;
+Protagonist* player;
+
 SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
 {
-
     if( SDL_Init(SDL_INIT_EVERYTHING) == 0 )
     {
         this->isRunning=true;
@@ -25,9 +23,8 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
             this->isRunning = false;
         }
         background = TextureManager::loadTexture("assets/test.bmp",this->renderer);
-        playerTex  = TextureManager::loadTexture("assets/up.bmp",this->renderer);
 
-        Protagonist x("assets/down.bmp",this->renderer);
+        player = new Protagonist("assets/down.bmp",this->renderer);
     }
     else
     {
@@ -37,16 +34,14 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
 }
 SDLWindow::~SDLWindow()
 {
-
     //Destroy window
+    SDL_DestroyRenderer( this->renderer );
     SDL_DestroyWindow( this->window );
     this->window = NULL;
-
-    SDL_DestroyRenderer(this->renderer);
-
+    this->renderer = NULL;
     //Quit SDL subsystems
+    IMG_Quit();
     SDL_Quit();
-    //dtor
 }
 
 
@@ -54,11 +49,14 @@ void SDLWindow:: handleEvents(){
     SDL_Event event;
     SDL_PollEvent(&event);
     switch(event.type){
-    case SDL_QUIT:
-        isRunning=false;
-        break;
+        case SDL_QUIT:
+            isRunning=false;
+            break;
+        case SDL_KEYDOWN:
+            player->handleEvent(event);
+            break;
         default:
-        break;
+            break;
     }
 }
 
@@ -66,22 +64,19 @@ void SDLWindow:: render()
 {
     SDL_RenderClear(this->renderer);
     SDL_RenderCopy(this->renderer, background, NULL, NULL);
-    SDL_RenderCopy(this->renderer, playerTex, NULL, &destR);
+    player->render();
     SDL_RenderPresent(this->renderer);
 }
 void SDLWindow:: update(){
-    cnt++;
-    destR.h = 32;
-    destR.w = 32;
-    destR.x = cnt;
-    destR.y = cnt;
+    player->update();
 }
-
+int cnt=0;
 
 void SDLWindow:: capFrameRate(int FPS, int frameStart){
     int frameTime = SDL_GetTicks() - frameStart;
 
-    printf("Frame Started %d\n", frameStart );
+    printf("Frame Started %d\n", cnt );
+    cnt++;
     if((1000/FPS)> frameTime){
         SDL_Delay((1000/FPS) - frameTime);
     }

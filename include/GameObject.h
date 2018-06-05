@@ -14,7 +14,6 @@ class GameObject
 
     protected:
         SDL_Texture* objTexture;
-        SDL_Rect srcRect, destRect;
         SDL_Renderer* renderer;
 };
 
