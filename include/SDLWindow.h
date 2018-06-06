@@ -26,7 +26,8 @@ class SDLWindow
         SDL_Window* window;
         SDL_Renderer* renderer;
         SDL_Surface* screen_surface = NULL;
-
+        SDL_Texture* background;
+        Protagonist* player;
         bool isRunning;
 };
 
