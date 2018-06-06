@@ -23,8 +23,6 @@ class Protagonist : public GameObject
         bool isJumpingDown =false;
         bool isMovingRight = false;
         bool isMovingLeft = false;
-        int currentFrame=0;
-        int animationFrames =3;
         int maxHeight;
         int currentHeight;
         SDL_Rect destRect;
