@@ -2,7 +2,7 @@
 #define PROTAGONIST_H
 
 #include <GameObject.h>
-
+#include <SpriteRenderer.h>
 
 class Protagonist : public GameObject
 {
@@ -17,13 +17,20 @@ class Protagonist : public GameObject
     protected:
 
     private:
+        int xpos;
+        int ypos;
         bool isJumpingUp =false;
         bool isJumpingDown =false;
         bool isMovingRight = false;
         bool isMovingLeft = false;
+        int currentFrame=0;
+        int animationFrames =3;
         int maxHeight;
         int currentHeight;
-        SDL_Rect destRect, sourceRect;
+        SDL_Rect destRect;
+        SpriteRenderer* animatedLeftSprite;
+        SpriteRenderer* animatedRightSprite;
+        SpriteRenderer* animatedIdleSprite;
 };
 
 #endif // PROTAGONIST_H

@@ -24,7 +24,7 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
         }
         background = TextureManager::loadTexture("assets/test.bmp",this->renderer);
 
-        player = new Protagonist("assets/down.bmp",this->renderer);
+        player = new Protagonist("assets/main_character.png",this->renderer);
     }
     else
     {
@@ -66,7 +66,7 @@ void SDLWindow:: handleEvents(){
 void SDLWindow:: render()
 {
     SDL_RenderClear(this->renderer);
-    SDL_RenderCopy(this->renderer, background, NULL, NULL);
+    //SDL_RenderCopy(this->renderer, background, NULL, NULL);
     player->render();
     SDL_RenderPresent(this->renderer);
 }

@@ -47,10 +47,15 @@
 		<Unit filename="assets/right.bmp" />
 		<Unit filename="assets/test.bmp" />
 		<Unit filename="assets/up.bmp" />
-		<Unit filename="include/KeyPressSurfaces.h" />
+		<Unit filename="include/GameObject.h" />
+		<Unit filename="include/Protagonist.h" />
 		<Unit filename="include/SDLWindow.h" />
+		<Unit filename="include/SpriteRenderer.h" />
 		<Unit filename="include/TextureManager.h" />
+		<Unit filename="src/GameObject.cpp" />
+		<Unit filename="src/Protagonist.cpp" />
 		<Unit filename="src/SDLWindow.cpp" />
+		<Unit filename="src/SpriteRenderer.cpp" />
 		<Unit filename="src/TextureManager.cpp" />
 		<Extensions>
 			<code_completion />
