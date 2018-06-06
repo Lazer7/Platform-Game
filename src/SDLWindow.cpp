@@ -53,7 +53,10 @@ void SDLWindow:: handleEvents(){
             isRunning=false;
             break;
         case SDL_KEYDOWN:
-            player->handleEvent(event);
+            player->handleKeyDownEvent(event);
+            break;
+        case SDL_KEYUP:
+            player->handleKeyUpEvent(event);
             break;
         default:
             break;

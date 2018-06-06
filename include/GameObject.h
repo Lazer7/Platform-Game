@@ -15,6 +15,8 @@ class GameObject
     protected:
         SDL_Texture* objTexture;
         SDL_Renderer* renderer;
+        int xpos;
+        int ypos;
 };
 
 #endif // GAMEOBJECT_H

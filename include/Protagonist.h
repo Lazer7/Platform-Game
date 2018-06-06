@@ -2,7 +2,7 @@
 #define PROTAGONIST_H
 
 #include <GameObject.h>
-#include <SDL_thread.h>
+
 
 class Protagonist : public GameObject
 {
@@ -12,12 +12,17 @@ class Protagonist : public GameObject
         virtual ~Protagonist();
         void update();
         void render();
-        void handleEvent(SDL_Event);
+        void handleKeyDownEvent(SDL_Event);
+        void handleKeyUpEvent(SDL_Event);
     protected:
 
     private:
-        int xpos;
-        int ypos;
+        bool isJumpingUp =false;
+        bool isJumpingDown =false;
+        bool isMovingRight = false;
+        bool isMovingLeft = false;
+        int maxHeight;
+        int currentHeight;
         SDL_Rect destRect, sourceRect;
 };
 

@@ -337,7 +337,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1528180815 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1528187806 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
 
 1528062002 d:\code\c++ projects\platform-game\include\sdlwindow.h
@@ -363,7 +363,7 @@
 1528060213 source:d:\code\c++ projects\platform-game\src\texturemanager.cpp
 	"TextureManager.h"
 
-1528062515 d:\code\c++ projects\platform-game\include\gameobject.h
+1528182971 d:\code\c++ projects\platform-game\include\gameobject.h
 	<SDL.h>
 	<SDL_image.h>
 	"TextureManager.h"
@@ -371,11 +371,17 @@
 1528061529 source:d:\code\c++ projects\platform-game\src\gameobject.cpp
 	"GameObject.h"
 
-1528182287 d:\code\c++ projects\platform-game\include\protagonist.h
+1528261090 d:\code\c++ projects\platform-game\include\protagonist.h
 	<GameObject.h>
-	<SDL_thread.h>
 
-1528181684 source:d:\code\c++ projects\platform-game\src\protagonist.cpp
+1528261177 source:d:\code\c++ projects\platform-game\src\protagonist.cpp
 	"Protagonist.h"
 	<stdio.h>
+
+1528184470 d:\code\c++ projects\platform-game\include\behaviors.h
+	"Protagonist.h"
+	<stdio.h>
+
+1528185016 source:d:\code\c++ projects\platform-game\src\behaviors.cpp
+	"Behaviors.h"
 
