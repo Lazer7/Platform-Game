@@ -2,7 +2,7 @@
 #define GAMEOBJECT_H
 #include <SDL.h>
 #include <SDL_image.h>
-#include "TextureManager.h"
+#include "../components/Components.h"
 
 class GameObject
 {
@@ -11,10 +11,10 @@ class GameObject
         virtual ~GameObject();
         virtual void update()=0;
         virtual void render()=0;
-
+        static SDL_Renderer* renderer;
     protected:
         SDL_Texture* objTexture;
-        SDL_Renderer* renderer;
+
 };
 
 #endif // GAMEOBJECT_H

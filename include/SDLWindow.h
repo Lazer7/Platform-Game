@@ -6,7 +6,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "TextureManager.h"
-#include "Protagonist.h"
 
 class SDLWindow
 {
@@ -20,14 +19,14 @@ class SDLWindow
 
         void loadMedia(std:: string);
         void capFrameRate(int,int);
+        static SDL_Renderer* renderer;
+        static SDL_Event event;
     protected:
 
     private:
-        SDL_Window* window;
-        SDL_Renderer* renderer;
+        SDL_Window* window = NULL;
         SDL_Surface* screen_surface = NULL;
         SDL_Texture* background;
-        Protagonist* player;
         bool isRunning;
 };
 

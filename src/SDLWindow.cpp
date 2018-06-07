@@ -1,4 +1,15 @@
 #include "SDLWindow.h"
+#include "../components/ComponentManager.h"
+#include "../components/Components.h"
+
+
+Manager manager;
+auto& newPlayer(manager.addEntity());
+auto& newPlayer2(manager.addEntity());
+
+SDL_Event SDLWindow::event;
+SDL_Renderer* SDLWindow::renderer = nullptr;
+
 /**
     SDLWindow Initialization: Sets the attributes of the game window
     @param width of the screen
@@ -27,8 +38,13 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
             this->isRunning = false;
         }
         // Initialize assets
-        background = TextureManager::loadTexture("assets/test.bmp",this->renderer);
-        player = new Protagonist("assets/main_character.png",this->renderer);
+        background = TextureManager::loadTexture("assets/test.bmp");
+
+        newPlayer.addComponent<TransformComponent>(250,250);
+        newPlayer.addComponent<SpriteRenderer>("assets/main_character_left.png",32,32,3,100);
+        newPlayer2.addComponent<TransformComponent>(100,100);
+        newPlayer2.addComponent<SpriteRenderer>("assets/main_character_left.png",32,32,3,100);
+
     }
     else
     {
@@ -52,17 +68,10 @@ SDLWindow::~SDLWindow()
     Handles any input or outputs that occurs in the window
 */
 void SDLWindow:: handleEvents(){
-    SDL_Event event;
     SDL_PollEvent(&event);
     switch(event.type){
         case SDL_QUIT:
             isRunning=false;
-            break;
-        case SDL_KEYDOWN:
-            player->handleKeyDownEvent(event);
-            break;
-        case SDL_KEYUP:
-            player->handleKeyUpEvent(event);
             break;
         default:
             break;
@@ -74,15 +83,18 @@ void SDLWindow:: handleEvents(){
 void SDLWindow:: render()
 {
     SDL_RenderClear(this->renderer);
-    //SDL_RenderCopy(this->renderer, background, NULL, NULL);
-    player->render();
+    SDL_RenderCopy(this->renderer, background, NULL, NULL);
+    manager.draw();
     SDL_RenderPresent(this->renderer);
 }
 /**
     Updates the game assets
 */
 void SDLWindow:: update(){
-    player->update();
+
+    manager.refresh();
+    newPlayer.getComponent<TransformComponent>().position.Add(Vector2D(5,0));
+    manager.update();
 }
 int cnt=0;
 /**

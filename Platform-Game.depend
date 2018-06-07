@@ -1,7 +1,13 @@
 # depslib dependency file v1.0
-1528311144 source:d:\code\c++ projects\platform-game\main.cpp
+1528355282 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
-	"KeyPressSurfaces.h"
+
+1528357378 d:\code\c++ projects\platform-game\include\sdlwindow.h
+	<stdio.h>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	"TextureManager.h"
 
 1519925811 d:\code\c++ projects\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -337,59 +343,56 @@
 	"begin_code.h"
 	"close_code.h"
 
-1528314873 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
-	"SDLWindow.h"
-
-1528314818 d:\code\c++ projects\platform-game\include\sdlwindow.h
-	<stdio.h>
-	<string>
-	<SDL.h>
-	<SDL_image.h>
-	"TextureManager.h"
-	"Protagonist.h"
-
-1527406711 d:\code\c++ projects\platform-game\include\keypresssurfaces.h
-
 1519936451 d:\code\c++ projects\sdl2_image-2.0.3\i686-w64-mingw32\include\sdl2\sdl_image.h
 	"SDL.h"
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
 
-1528060189 d:\code\c++ projects\platform-game\include\texturemanager.h
-	<SDL.h>
-	<SDL_image.h>
+1528355817 d:\code\c++ projects\platform-game\include\texturemanager.h
+	<SDLWindow.h>
 
-1528313157 source:d:\code\c++ projects\platform-game\src\texturemanager.cpp
-	"TextureManager.h"
-
-1528303017 d:\code\c++ projects\platform-game\include\gameobject.h
-	<SDL.h>
-	<SDL_image.h>
-	"TextureManager.h"
-
-1528314289 source:d:\code\c++ projects\platform-game\src\gameobject.cpp
+1528355446 source:d:\code\c++ projects\platform-game\src\gameobject.cpp
 	"GameObject.h"
 
-1528312329 d:\code\c++ projects\platform-game\include\protagonist.h
-	<GameObject.h>
-	<SpriteRenderer.h>
+1528356971 d:\code\c++ projects\platform-game\include\gameobject.h
+	<SDL.h>
+	<SDL_image.h>
+	"../components/Components.h"
 
-1528314788 source:d:\code\c++ projects\platform-game\src\protagonist.cpp
-	"Protagonist.h"
-
-1528184470 d:\code\c++ projects\platform-game\include\behaviors.h
-	"Protagonist.h"
-	<stdio.h>
-
-1528185016 source:d:\code\c++ projects\platform-game\src\behaviors.cpp
-	"Behaviors.h"
-
-1528313960 source:d:\code\c++ projects\platform-game\src\spriterenderer.cpp
+1528356946 d:\code\c++ projects\platform-game\components\components.h
+	"ComponentManager.h"
+	"TransformComponent.h"
 	"SpriteRenderer.h"
 
-1528312381 d:\code\c++ projects\platform-game\include\spriterenderer.h
+1528355591 d:\code\c++ projects\platform-game\components\componentmanager.h
+	<iostream>
+	<vector>
+	<memory>
+	<algorithm>
+	<bitset>
+	<array>
+
+1528356462 d:\code\c++ projects\platform-game\components\transformcomponent.h
+	"Components.h"
+	"../include/Vector2D.h"
+
+1528355493 d:\code\c++ projects\platform-game\include\vector2d.h
+	<iostream>
+
+1528357172 d:\code\c++ projects\platform-game\components\spriterenderer.h
 	"TextureManager.h"
+	"Components.h"
 	"SDL.h"
-	"SDL_image.h"
+
+1528357207 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+	"SDLWindow.h"
+	"../components/ComponentManager.h"
+	"../components/Components.h"
+
+1528355830 source:d:\code\c++ projects\platform-game\src\texturemanager.cpp
+	"TextureManager.h"
+
+1528355497 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
+	"Vector2D.h"
 
