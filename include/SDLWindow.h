@@ -5,7 +5,6 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_image.h>
-#include "../components/Components.h"
 #include "CharacterHandler.h"
 
 class SDLWindow
@@ -21,6 +20,7 @@ class SDLWindow
         void loadMedia(std:: string);
         void capFrameRate(int,int);
         SDL_Renderer* renderer;
+        SDL_Event event;
 
     protected:
 

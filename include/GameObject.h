@@ -10,10 +10,7 @@
 class GameObject
 {
     public:
-        // Component Manager
-        Manager manager;
-        Entity& entityHandler;
-        // Constructor
+            // Constructor
         GameObject():entityHandler(this->manager.addEntity()){};
         // Add and Get Components
         template <typename T,typename... Args> void addComponent(Args... args){
@@ -23,8 +20,18 @@ class GameObject
         template <typename T> T& getComponent(){
             entityHandler.getComponent<T>();
         }
-        //virtual void update() = 0;
-        //virtual void render() = 0;
+    protected:
+        // Component Manager
+        Manager manager;
+        Entity& entityHandler;
+
+        virtual void update(){
+            manager.refresh();
+            manager.update();
+        };
+        virtual void render(){
+            manager.draw();
+        };
 };
 
 #endif // GAMEOBJECT_H

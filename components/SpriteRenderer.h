@@ -10,7 +10,8 @@ class SpriteRenderer : public Component
 {
     private:
         // Height and Width of image
-        int height,width;
+        int srcHeight,srcWidth;
+        int destHeight,destWidth;
         // Position of the image on the frame
         TransformComponent* transformer;
         SDL_Rect srcRect, destRect;
@@ -26,17 +27,22 @@ class SpriteRenderer : public Component
         SpriteRenderer(SDL_Renderer* renderer){
             this->renderer = renderer;
         };
-        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int width, int height){
+
+        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int srcWidth, int srcHeight, int destWidth,int destHeight){
             this->renderer = renderer;
             setTexture(spriteSheet);
-            this->width=width;
-            this->height=height;
+            this->srcWidth=srcWidth;
+            this->srcHeight=srcHeight;
+            this->destHeight = destHeight;
+            this->destWidth = destWidth;
         };
-        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int width, int height, int frames, int speed){
+        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int srcWidth, int srcHeight, int destWidth,int destHeight, int frames, int speed){
             this->renderer = renderer;
             setTexture(spriteSheet);
-            this->width=width;
-            this->height=height;
+            this->srcWidth=srcWidth;
+            this->srcHeight=srcHeight;
+            this->destHeight = destHeight;
+            this->destWidth = destWidth;
             animated = true;
             this->frames = frames;
             speed = speed;
@@ -49,10 +55,11 @@ class SpriteRenderer : public Component
         void init() override
         {
            transformer = &entity->getComponent<TransformComponent>();
-
             srcRect.x = srcRect.y = 0;
-            srcRect.w = destRect.w = width;
-            srcRect.h = destRect.h = height;
+            srcRect.w = srcWidth;
+            srcRect.h = srcHeight;
+            destRect.w = destWidth;
+            destRect.h = destHeight;
         }
         void update() override
         {

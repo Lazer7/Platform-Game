@@ -2,20 +2,19 @@
 #define CHARACTERHANDLER_H
 #include <vector>
 #include <../components/Components.h>
-#include "GameObject.h"
+#include "PlayableCharacter.h"
 
 
 
-class GameObject;
 class CharacterHandler
 {
     public:
-        CharacterHandler()=default;
+        CharacterHandler(){};
         void init(SDL_Renderer* renderer);
         void update();
         void render();
-        GameObject newPlayer, newPlayer2;
-
+        void keyEventHandler(SDL_Event);
+        PlayableCharacter newplayer,newplayer2,newplayer3,newplayer4;
     private:
         static SDL_Renderer* renderer;
 

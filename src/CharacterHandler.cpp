@@ -6,24 +6,34 @@
     @param renderer the rendering engine to place all game objects
 */
 void CharacterHandler::init(SDL_Renderer* renderer){
-    newPlayer.addComponent<TransformComponent>(250,250);
-    newPlayer.addComponent<SpriteRenderer>(renderer,"assets/main_character_left.png",32,32,3,100);
-    newPlayer2.addComponent<TransformComponent>(100,100);
-    newPlayer2.addComponent<SpriteRenderer>(renderer,"assets/main_character_left.png",32,32,3,100);
+    newplayer.init(renderer,100,100);
+    newplayer2.init(renderer,200,200);
+    newplayer3.init(renderer,300,300);
+    newplayer4.init(renderer,400,400);
 }
 /**
     Update function to call each character update function
 */
 void CharacterHandler::update(){
-    newPlayer.manager.refresh();
-    newPlayer2.manager.refresh();
-    newPlayer.manager.update();
-    newPlayer2.manager.update();
+    newplayer.update();
+    newplayer2.update();
+    newplayer3.update();
+    newplayer4.update();
+
 }
 /**
     Render function to draw the game object to the screen
 */
 void CharacterHandler::render(){
-    newPlayer.manager.draw();
-    newPlayer2.manager.draw();
+    newplayer.render();
+    newplayer2.render();
+    newplayer3.render();
+    newplayer4.render();
+}
+
+void CharacterHandler::keyEventHandler(SDL_Event event){
+    newplayer.keyEventListener(event);
+    newplayer2.keyEventListener(event);
+    newplayer3.keyEventListener(event);
+    newplayer4.keyEventListener(event);
 }

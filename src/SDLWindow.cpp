@@ -1,5 +1,5 @@
 #include "SDLWindow.h"
-
+#include "PlayableCharacter.h"
 /**
     SDLWindow Initialization: Sets the attributes of the game window
     @param width of the screen
@@ -33,6 +33,8 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
         SDL_FreeSurface(tempSurface);
 
         characterHandler.init(this->renderer);
+
+
     }
     else
     {
@@ -56,13 +58,13 @@ SDLWindow::~SDLWindow()
     Handles any input or outputs that occurs in the window
 */
 void SDLWindow:: handleEvents(){
-    SDL_Event event;
     SDL_PollEvent(&event);
     switch(event.type){
         case SDL_QUIT:
             isRunning=false;
             break;
         default:
+            characterHandler.keyEventHandler(event);
             break;
     }
 }

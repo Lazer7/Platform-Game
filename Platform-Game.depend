@@ -1,14 +1,13 @@
 # depslib dependency file v1.0
-1528355282 source:d:\code\c++ projects\platform-game\main.cpp
+1528450562 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
 
-1528435585 d:\code\c++ projects\platform-game\include\sdlwindow.h
+1528446997 d:\code\c++ projects\platform-game\include\sdlwindow.h
 	<iostream>
 	<stdio.h>
 	<string>
 	<SDL.h>
 	<SDL_image.h>
-	"../components/Components.h"
 	"CharacterHandler.h"
 
 1519925811 d:\code\c++ projects\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl.h
@@ -357,7 +356,7 @@
 1528432165 source:d:\code\c++ projects\platform-game\src\gameobject.cpp
 	"GameObject.h"
 
-1528441728 d:\code\c++ projects\platform-game\include\gameobject.h
+1528446484 d:\code\c++ projects\platform-game\include\gameobject.h
 	<iostream>
 	<string>
 	"../components/ComponentManager.h"
@@ -376,31 +375,41 @@
 	<bitset>
 	<array>
 
-1528432917 d:\code\c++ projects\platform-game\components\transformcomponent.h
+1528448471 d:\code\c++ projects\platform-game\components\transformcomponent.h
 	"../include/Vector2D.h"
+	<iostream>
 
 1528355493 d:\code\c++ projects\platform-game\include\vector2d.h
 	<iostream>
 
-1528435396 d:\code\c++ projects\platform-game\components\spriterenderer.h
+1528449596 d:\code\c++ projects\platform-game\components\spriterenderer.h
 	"Components.h"
 	"SDL_image.h"
 	"SDL.h"
 
-1528435496 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1528447260 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
+	"PlayableCharacter.h"
 
 1528355830 source:d:\code\c++ projects\platform-game\src\texturemanager.cpp
 	"TextureManager.h"
 
-1528355497 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
+1528441958 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
 	"Vector2D.h"
 
-1528435557 d:\code\c++ projects\platform-game\include\characterhandler.h
+1528450711 d:\code\c++ projects\platform-game\include\characterhandler.h
 	<vector>
 	<../components/Components.h>
-	"GameObject.h"
+	"PlayableCharacter.h"
 
-1528441670 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
+1528450786 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
 	"CharacterHandler.h"
+
+1528450798 d:\code\c++ projects\platform-game\include\playablecharacter.h
+	"GameObject.h"
+	"../components/Components.h"
+
+1528450829 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
+	"PlayableCharacter.h"
+	<iostream>
 
