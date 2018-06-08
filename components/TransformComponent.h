@@ -2,7 +2,9 @@
 #ifndef TRANSFORMCOMPONENT_H
 #define TRANSFORMCOMPONENT_H
 #include "../include/Vector2D.h"
-
+/**
+    Holds Game Object Locations on the screen
+*/
 class TransformComponent : public Component
 {
 

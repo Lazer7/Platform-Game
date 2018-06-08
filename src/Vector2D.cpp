@@ -1,16 +1,20 @@
 #include "Vector2D.h"
-
+/**
+    Constructor
+*/
 Vector2D::Vector2D()
 {
     //ctor
     x= 0.0f;
     y= 0.0f;
 }
+/**
+    Overloaded Constructor to set default values to the vector
+*/
 Vector2D::Vector2D(float x, float y){
     this->x= x;
     this->y= y;
 }
-
 Vector2D& Vector2D::Add(const Vector2D& vec)
 {
     this->x += vec.x;
@@ -30,7 +34,7 @@ Vector2D& Vector2D::Divide(const Vector2D& vec){
     this->x /= vec.x;
     this->y /= vec.y;
 }
-
+/**Overriding arithmetic operators**/
 Vector2D& operator+(Vector2D& obj1, Vector2D& obj2){
     return obj1.Add(obj2);
 }

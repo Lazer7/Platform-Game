@@ -9,16 +9,20 @@
 class SpriteRenderer : public Component
 {
     private:
+        // Height and Width of image
         int height,width;
+        // Position of the image on the frame
         TransformComponent* transformer;
         SDL_Rect srcRect, destRect;
         SDL_Texture* spriteSheetTexture;
         SDL_Renderer* renderer;
+        // Animation variables
         bool animated = false;
         int frames = 0;
         int speed = 100;
 
     public:
+        // Overloaded Constructors
         SpriteRenderer(SDL_Renderer* renderer){
             this->renderer = renderer;
         };

@@ -357,7 +357,7 @@
 1528432165 source:d:\code\c++ projects\platform-game\src\gameobject.cpp
 	"GameObject.h"
 
-1528434395 d:\code\c++ projects\platform-game\include\gameobject.h
+1528441728 d:\code\c++ projects\platform-game\include\gameobject.h
 	<iostream>
 	<string>
 	"../components/ComponentManager.h"
@@ -401,6 +401,6 @@
 	<../components/Components.h>
 	"GameObject.h"
 
-1528435509 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
+1528441670 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
 	"CharacterHandler.h"
 

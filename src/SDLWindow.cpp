@@ -1,11 +1,5 @@
 #include "SDLWindow.h"
 
-
-GameObject x;
-
-
-
-
 /**
     SDLWindow Initialization: Sets the attributes of the game window
     @param width of the screen
@@ -37,8 +31,7 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
         SDL_Surface* tempSurface = IMG_Load("assets/test.bmp");
         background = SDL_CreateTextureFromSurface(renderer, tempSurface);
         SDL_FreeSurface(tempSurface);
-//        x.addComponent<TransformComponent>(250,250);
- //       x.addComponent<SpriteRenderer>(this->renderer,"assets/main_character_left.png",32,32,3,100);
+
         characterHandler.init(this->renderer);
     }
     else
@@ -80,7 +73,6 @@ void SDLWindow:: render()
 {
     SDL_RenderClear(this->renderer);
     SDL_RenderCopy(this->renderer, background, NULL, NULL);
-    //x.manager.draw();
     characterHandler.render();
     SDL_RenderPresent(this->renderer);
 }
@@ -88,8 +80,6 @@ void SDLWindow:: render()
     Updates the game assets
 */
 void SDLWindow:: update(){
-   // x.manager.refresh();
-   // x.manager.update();
     characterHandler.update();
 }
 int cnt=0;

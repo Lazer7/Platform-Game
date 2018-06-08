@@ -4,13 +4,18 @@
 #include <string>
 #include "../components/ComponentManager.h"
 #include <typeinfo>
-
+/**
+    Abstract Game Object class that will hold all components of a game object
+*/
 class GameObject
 {
     public:
-        GameObject();
+        // Component Manager
         Manager manager;
         Entity& entityHandler;
+        // Constructor
+        GameObject():entityHandler(this->manager.addEntity()){};
+        // Add and Get Components
         template <typename T,typename... Args> void addComponent(Args... args){
             entityHandler.addComponent<T>(args...);
 
