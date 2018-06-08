@@ -1,20 +1,25 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
-#include <SDL.h>
-#include <SDL_image.h>
-#include "../components/Components.h"
+#include <iostream>
+#include <string>
+#include "../components/ComponentManager.h"
+#include <typeinfo>
 
 class GameObject
 {
     public:
-        GameObject(char* spriteSheet, SDL_Renderer* renderer);
-        virtual ~GameObject();
-        virtual void update()=0;
-        virtual void render()=0;
-        static SDL_Renderer* renderer;
-    protected:
-        SDL_Texture* objTexture;
+        GameObject();
+        Manager manager;
+        Entity& entityHandler;
+        template <typename T,typename... Args> void addComponent(Args... args){
+            entityHandler.addComponent<T>(args...);
 
+        }
+        template <typename T> T& getComponent(){
+            entityHandler.getComponent<T>();
+        }
+        //virtual void update() = 0;
+        //virtual void render() = 0;
 };
 
 #endif // GAMEOBJECT_H

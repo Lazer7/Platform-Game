@@ -101,5 +101,6 @@ class Manager{
             entities.emplace_back(std::move(uPtr));
             return *e;
         }
+
 };
 #endif

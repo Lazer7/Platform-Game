@@ -11,8 +11,10 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +24,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -30,7 +33,36 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add directory="D:/Code/C++ Projects/SDL2-2.0.8/i686-w64-mingw32/include/SDL2" />
+			<Add directory="D:/Code/C++ Projects/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2" />
 		</Compiler>
+		<Linker>
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image" />
+			<Add directory="D:/Code/C++ Projects/SDL2-2.0.8/i686-w64-mingw32/lib" />
+			<Add directory="D:/Code/C++ Projects/SDL2_image-2.0.3/i686-w64-mingw32/lib" />
+		</Linker>
+		<Unit filename="Main.cpp" />
+		<Unit filename="assets/down.bmp" />
+		<Unit filename="assets/left.bmp" />
+		<Unit filename="assets/main_character.png" />
+		<Unit filename="assets/main_character_left.png" />
+		<Unit filename="assets/right.bmp" />
+		<Unit filename="assets/test.bmp" />
+		<Unit filename="assets/up.bmp" />
+		<Unit filename="components/ComponentManager.h" />
+		<Unit filename="components/Components.h" />
+		<Unit filename="components/SpriteRenderer.h" />
+		<Unit filename="components/TransformComponent.h" />
+		<Unit filename="include/CharacterHandler.h" />
+		<Unit filename="include/GameObject.h" />
+		<Unit filename="include/SDLWindow.h" />
+		<Unit filename="include/TextureManager.h" />
+		<Unit filename="include/Vector2D.h" />
+		<Unit filename="src/CharacterHandler.cpp" />
+		<Unit filename="src/GameObject.cpp" />
+		<Unit filename="src/SDLWindow.cpp" />
+		<Unit filename="src/TextureManager.cpp" />
+		<Unit filename="src/Vector2D.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

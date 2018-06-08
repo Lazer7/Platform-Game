@@ -1,14 +1,10 @@
 #include "SDLWindow.h"
-#include "../components/ComponentManager.h"
-#include "../components/Components.h"
 
 
-Manager manager;
-auto& newPlayer(manager.addEntity());
-auto& newPlayer2(manager.addEntity());
+GameObject x;
 
-SDL_Event SDLWindow::event;
-SDL_Renderer* SDLWindow::renderer = nullptr;
+
+
 
 /**
     SDLWindow Initialization: Sets the attributes of the game window
@@ -38,13 +34,12 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
             this->isRunning = false;
         }
         // Initialize assets
-        background = TextureManager::loadTexture("assets/test.bmp");
-
-        newPlayer.addComponent<TransformComponent>(250,250);
-        newPlayer.addComponent<SpriteRenderer>("assets/main_character_left.png",32,32,3,100);
-        newPlayer2.addComponent<TransformComponent>(100,100);
-        newPlayer2.addComponent<SpriteRenderer>("assets/main_character_left.png",32,32,3,100);
-
+        SDL_Surface* tempSurface = IMG_Load("assets/test.bmp");
+        background = SDL_CreateTextureFromSurface(renderer, tempSurface);
+        SDL_FreeSurface(tempSurface);
+//        x.addComponent<TransformComponent>(250,250);
+ //       x.addComponent<SpriteRenderer>(this->renderer,"assets/main_character_left.png",32,32,3,100);
+        characterHandler.init(this->renderer);
     }
     else
     {
@@ -68,6 +63,7 @@ SDLWindow::~SDLWindow()
     Handles any input or outputs that occurs in the window
 */
 void SDLWindow:: handleEvents(){
+    SDL_Event event;
     SDL_PollEvent(&event);
     switch(event.type){
         case SDL_QUIT:
@@ -84,17 +80,17 @@ void SDLWindow:: render()
 {
     SDL_RenderClear(this->renderer);
     SDL_RenderCopy(this->renderer, background, NULL, NULL);
-    manager.draw();
+    //x.manager.draw();
+    characterHandler.render();
     SDL_RenderPresent(this->renderer);
 }
 /**
     Updates the game assets
 */
 void SDLWindow:: update(){
-
-    manager.refresh();
-    newPlayer.getComponent<TransformComponent>().position.Add(Vector2D(5,0));
-    manager.update();
+   // x.manager.refresh();
+   // x.manager.update();
+    characterHandler.update();
 }
 int cnt=0;
 /**

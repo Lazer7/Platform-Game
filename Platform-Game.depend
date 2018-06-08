@@ -2,12 +2,14 @@
 1528355282 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
 
-1528357378 d:\code\c++ projects\platform-game\include\sdlwindow.h
+1528435585 d:\code\c++ projects\platform-game\include\sdlwindow.h
+	<iostream>
 	<stdio.h>
 	<string>
 	<SDL.h>
 	<SDL_image.h>
-	"TextureManager.h"
+	"../components/Components.h"
+	"CharacterHandler.h"
 
 1519925811 d:\code\c++ projects\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -352,20 +354,21 @@
 1528355817 d:\code\c++ projects\platform-game\include\texturemanager.h
 	<SDLWindow.h>
 
-1528355446 source:d:\code\c++ projects\platform-game\src\gameobject.cpp
+1528432165 source:d:\code\c++ projects\platform-game\src\gameobject.cpp
 	"GameObject.h"
 
-1528356971 d:\code\c++ projects\platform-game\include\gameobject.h
-	<SDL.h>
-	<SDL_image.h>
-	"../components/Components.h"
+1528434395 d:\code\c++ projects\platform-game\include\gameobject.h
+	<iostream>
+	<string>
+	"../components/ComponentManager.h"
+	<typeinfo>
 
-1528356946 d:\code\c++ projects\platform-game\components\components.h
+1528434205 d:\code\c++ projects\platform-game\components\components.h
 	"ComponentManager.h"
 	"TransformComponent.h"
 	"SpriteRenderer.h"
 
-1528355591 d:\code\c++ projects\platform-game\components\componentmanager.h
+1528431845 d:\code\c++ projects\platform-game\components\componentmanager.h
 	<iostream>
 	<vector>
 	<memory>
@@ -373,26 +376,31 @@
 	<bitset>
 	<array>
 
-1528356462 d:\code\c++ projects\platform-game\components\transformcomponent.h
-	"Components.h"
+1528432917 d:\code\c++ projects\platform-game\components\transformcomponent.h
 	"../include/Vector2D.h"
 
 1528355493 d:\code\c++ projects\platform-game\include\vector2d.h
 	<iostream>
 
-1528357172 d:\code\c++ projects\platform-game\components\spriterenderer.h
-	"TextureManager.h"
+1528435396 d:\code\c++ projects\platform-game\components\spriterenderer.h
 	"Components.h"
+	"SDL_image.h"
 	"SDL.h"
 
-1528357207 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1528435496 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
-	"../components/ComponentManager.h"
-	"../components/Components.h"
 
 1528355830 source:d:\code\c++ projects\platform-game\src\texturemanager.cpp
 	"TextureManager.h"
 
 1528355497 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
 	"Vector2D.h"
+
+1528435557 d:\code\c++ projects\platform-game\include\characterhandler.h
+	<vector>
+	<../components/Components.h>
+	"GameObject.h"
+
+1528435509 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
+	"CharacterHandler.h"
 

@@ -1,7 +1,6 @@
 
 #ifndef TRANSFORMCOMPONENT_H
 #define TRANSFORMCOMPONENT_H
-#include "Components.h"
 #include "../include/Vector2D.h"
 
 class TransformComponent : public Component

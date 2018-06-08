@@ -1,8 +1,11 @@
 #ifndef SPRITERENDERER_H
 #define SPRITERENDERER_H
-#include "TextureManager.h"
+
 #include "Components.h"
+#include "SDL_image.h"
 #include "SDL.h"
+
+
 class SpriteRenderer : public Component
 {
     private:
@@ -10,20 +13,24 @@ class SpriteRenderer : public Component
         TransformComponent* transformer;
         SDL_Rect srcRect, destRect;
         SDL_Texture* spriteSheetTexture;
-
+        SDL_Renderer* renderer;
         bool animated = false;
         int frames = 0;
         int speed = 100;
 
     public:
-        SpriteRenderer() = default;
-        SpriteRenderer(const char* spriteSheet,int width, int height){
-            spriteSheetTexture = TextureManager::loadTexture(spriteSheet);
+        SpriteRenderer(SDL_Renderer* renderer){
+            this->renderer = renderer;
+        };
+        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int width, int height){
+            this->renderer = renderer;
+            setTexture(spriteSheet);
             this->width=width;
             this->height=height;
         };
-        SpriteRenderer(const char* spriteSheet,int width, int height, int frames, int speed){
-            spriteSheetTexture = TextureManager::loadTexture(spriteSheet);
+        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int width, int height, int frames, int speed){
+            this->renderer = renderer;
+            setTexture(spriteSheet);
             this->width=width;
             this->height=height;
             animated = true;
@@ -31,7 +38,9 @@ class SpriteRenderer : public Component
             speed = speed;
         };
         void setTexture(const char* spriteSheet){
-            spriteSheetTexture = TextureManager::loadTexture(spriteSheet);
+            SDL_Surface* tempSurface = IMG_Load(spriteSheet);
+            spriteSheetTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+            SDL_FreeSurface(tempSurface);
         }
         void init() override
         {
@@ -52,7 +61,7 @@ class SpriteRenderer : public Component
         }
         void draw() override
         {
-            TextureManager::Draw(spriteSheetTexture,srcRect,destRect);
+            SDL_RenderCopy(renderer,spriteSheetTexture,&srcRect,&destRect);
         }
 
 };

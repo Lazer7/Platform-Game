@@ -1,11 +1,12 @@
 #ifndef SDLWINDOW_H
 #define SDLWINDOW_H
-
+#include <iostream>
 #include <stdio.h>
 #include <string>
 #include <SDL.h>
 #include <SDL_image.h>
-#include "TextureManager.h"
+#include "../components/Components.h"
+#include "CharacterHandler.h"
 
 class SDLWindow
 {
@@ -19,14 +20,15 @@ class SDLWindow
 
         void loadMedia(std:: string);
         void capFrameRate(int,int);
-        static SDL_Renderer* renderer;
-        static SDL_Event event;
+        SDL_Renderer* renderer;
+
     protected:
 
     private:
         SDL_Window* window = NULL;
         SDL_Surface* screen_surface = NULL;
         SDL_Texture* background;
+        CharacterHandler characterHandler;
         bool isRunning;
 };
 

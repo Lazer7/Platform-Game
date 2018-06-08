@@ -6,6 +6,4 @@
 #include "SpriteRenderer.h"
 
 
-
-
 #endif
