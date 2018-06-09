@@ -4,6 +4,6 @@
 #include "ComponentManager.h"
 #include "TransformComponent.h"
 #include "SpriteRenderer.h"
-
+#include "ColliderComponent.h"
 
 #endif

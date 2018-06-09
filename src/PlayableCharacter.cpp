@@ -2,8 +2,9 @@
 #include <iostream>
 using namespace std;
 void PlayableCharacter::init(SDL_Renderer* renderer,int x, int y){
-    this->addComponent<TransformComponent>(x,y);
-    this->addComponent<SpriteRenderer>(renderer,"assets/main_character_left.png",32,32,100,100,3,100);
+    this->addComponent<TransformComponent>(x,y,100,100);
+    this->addComponent<SpriteRenderer>(renderer,"assets/main_character_left.png",32,32,3,100);
+    this->addComponent<ColliderComponent>("Player");
     MaxHeight = y-100;
     currentHeight=y;
 }
@@ -59,5 +60,10 @@ void PlayableCharacter::keyEventListener(SDL_Event event){
                 isMovingRight=false;
             break;
         }
+    }
+}
+void PlayableCharacter::onCollisionDetection(ColliderComponent collider){
+    if(getComponent<ColliderComponent>().collision(collider)){
+        cout << "I've BEEN HIT" << endl;
     }
 }

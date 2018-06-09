@@ -11,7 +11,6 @@ class SpriteRenderer : public Component
     private:
         // Height and Width of image
         int srcHeight,srcWidth;
-        int destHeight,destWidth;
         // Position of the image on the frame
         TransformComponent* transformer;
         SDL_Rect srcRect, destRect;
@@ -28,25 +27,25 @@ class SpriteRenderer : public Component
             this->renderer = renderer;
         };
 
-        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int srcWidth, int srcHeight, int destWidth,int destHeight){
+        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int srcWidth, int srcHeight){
             this->renderer = renderer;
             setTexture(spriteSheet);
             this->srcWidth=srcWidth;
             this->srcHeight=srcHeight;
-            this->destHeight = destHeight;
-            this->destWidth = destWidth;
         };
-        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int srcWidth, int srcHeight, int destWidth,int destHeight, int frames, int speed){
+        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int srcWidth, int srcHeight, int frames, int speed){
             this->renderer = renderer;
             setTexture(spriteSheet);
             this->srcWidth=srcWidth;
             this->srcHeight=srcHeight;
-            this->destHeight = destHeight;
-            this->destWidth = destWidth;
             animated = true;
             this->frames = frames;
             speed = speed;
         };
+        ~SpriteRenderer(){
+            SDL_DestroyTexture(this->spriteSheetTexture);
+            this->spriteSheetTexture = NULL;
+        }
         void setTexture(const char* spriteSheet){
             SDL_Surface* tempSurface = IMG_Load(spriteSheet);
             spriteSheetTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
@@ -54,12 +53,15 @@ class SpriteRenderer : public Component
         }
         void init() override
         {
-           transformer = &entity->getComponent<TransformComponent>();
+            if(!entity->hasComponent<TransformComponent>()){
+                entity->addComponent<TransformComponent>();
+            }
+            transformer = &entity->getComponent<TransformComponent>();
             srcRect.x = srcRect.y = 0;
             srcRect.w = srcWidth;
             srcRect.h = srcHeight;
-            destRect.w = destWidth;
-            destRect.h = destHeight;
+            destRect.w = transformer->width;
+            destRect.h = transformer->height;
         }
         void update() override
         {

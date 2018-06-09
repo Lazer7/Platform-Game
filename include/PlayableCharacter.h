@@ -12,6 +12,7 @@ class PlayableCharacter : public GameObject
         void update();
         void render();
         void keyEventListener(SDL_Event);
+        void onCollisionDetection(ColliderComponent);
     protected:
 
     private:

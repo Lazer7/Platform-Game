@@ -14,16 +14,29 @@ public:
     Vector2D position;
     Vector2D velocity;
 
+    int height;
+    int width;
 
     TransformComponent()
     {
         position.x=0.0f;
         position.y=0.0f;
+        height = 32;
+        width = 32;
     }
     TransformComponent(float x, float y)
     {
         position.x = x;
         position.y = y;
+        height = 32;
+        width = 32;
+    }
+    TransformComponent(float x, float y, int height, int width)
+    {
+        position.x = x;
+        position.y = y;
+        this->height = height;
+        this->width = width;
     }
     void init() override
     {

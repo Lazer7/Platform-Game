@@ -20,7 +20,7 @@ class GameObject
         template <typename T> T& getComponent(){
             entityHandler.getComponent<T>();
         }
-    protected:
+//    protected:
         // Component Manager
         Manager manager;
         Entity& entityHandler;
