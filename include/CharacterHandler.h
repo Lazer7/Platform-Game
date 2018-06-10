@@ -14,7 +14,7 @@ class CharacterHandler
         void update();
         void render();
         void keyEventHandler(SDL_Event);
-        PlayableCharacter newplayer,newplayer2,newplayer3,newplayer4;
+        PlayableCharacter newplayer;
         GameObject wall;
     private:
         static SDL_Renderer* renderer;

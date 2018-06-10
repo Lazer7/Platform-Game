@@ -43,6 +43,7 @@
 		</Linker>
 		<Unit filename="Main.cpp" />
 		<Unit filename="assets/down.bmp" />
+		<Unit filename="assets/gamebackground.jpg" />
 		<Unit filename="assets/left.bmp" />
 		<Unit filename="assets/main_character.png" />
 		<Unit filename="assets/main_character_left.png" />
@@ -55,13 +56,14 @@
 		<Unit filename="components/TransformComponent.h" />
 		<Unit filename="include/CharacterHandler.h" />
 		<Unit filename="include/GameObject.h" />
+		<Unit filename="include/Map.h" />
+		<Unit filename="include/PlayableCharacter.h" />
 		<Unit filename="include/SDLWindow.h" />
-		<Unit filename="include/TextureManager.h" />
 		<Unit filename="include/Vector2D.h" />
 		<Unit filename="src/CharacterHandler.cpp" />
-		<Unit filename="src/GameObject.cpp" />
+		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/PlayableCharacter.cpp" />
 		<Unit filename="src/SDLWindow.cpp" />
-		<Unit filename="src/TextureManager.cpp" />
 		<Unit filename="src/Vector2D.cpp" />
 		<Extensions>
 			<code_completion />

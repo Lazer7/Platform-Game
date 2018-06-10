@@ -3,7 +3,7 @@
 using namespace std;
 void PlayableCharacter::init(SDL_Renderer* renderer,int x, int y){
     this->addComponent<TransformComponent>(x,y,100,100);
-    this->addComponent<SpriteRenderer>(renderer,"assets/main_character_left.png",32,32,3,100);
+    this->addComponent<SpriteRenderer>(renderer,"assets/main_character_right.png",32,32,3,100);
     this->addComponent<ColliderComponent>("Player");
     MaxHeight = y-100;
     currentHeight=y;

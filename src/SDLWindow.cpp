@@ -1,5 +1,6 @@
 #include "SDLWindow.h"
-#include "PlayableCharacter.h"
+
+
 /**
     SDLWindow Initialization: Sets the attributes of the game window
     @param width of the screen
@@ -27,11 +28,7 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
             printf( "Something could not be created! SDL_Error: %s\n", SDL_GetError() );
             this->isRunning = false;
         }
-        // Initialize assets
-        SDL_Surface* tempSurface = IMG_Load("assets/test.bmp");
-        background = SDL_CreateTextureFromSurface(renderer, tempSurface);
-        SDL_FreeSurface(tempSurface);
-
+        background.init(this->renderer,"assets/gamebackground.jpg");
         characterHandler.init(this->renderer);
 
 
@@ -74,7 +71,7 @@ void SDLWindow:: handleEvents(){
 void SDLWindow:: render()
 {
     SDL_RenderClear(this->renderer);
-    SDL_RenderCopy(this->renderer, background, NULL, NULL);
+    background.render();
     characterHandler.render();
     SDL_RenderPresent(this->renderer);
 }
@@ -82,6 +79,7 @@ void SDLWindow:: render()
     Updates the game assets
 */
 void SDLWindow:: update(){
+    background.update();
     characterHandler.update();
 }
 int cnt=0;

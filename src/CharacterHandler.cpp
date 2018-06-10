@@ -6,11 +6,9 @@
     @param renderer the rendering engine to place all game objects
 */
 void CharacterHandler::init(SDL_Renderer* renderer){
-    newplayer.init(renderer,100,100);
-    newplayer2.init(renderer,200,200);
-    newplayer3.init(renderer,300,300);
-    wall.addComponent<TransformComponent>(500,300,200,200);
-    wall.addComponent<SpriteRenderer>(renderer,"assets/main_character_left.png",500,500);
+    newplayer.init(renderer,200,475);
+    wall.addComponent<TransformComponent>(500,350,75,75);
+    wall.addComponent<SpriteRenderer>(renderer,"assets/up.bmp",900,900);
     wall.addComponent<ColliderComponent>("Wall");
 }
 /**
@@ -18,23 +16,17 @@ void CharacterHandler::init(SDL_Renderer* renderer){
 */
 void CharacterHandler::update(){
     newplayer.update();
-    newplayer2.update();
-    newplayer3.update();
     wall.update();
-    newplayer3.onCollisionDetection(wall.getComponent<ColliderComponent>());
+    newplayer.onCollisionDetection(wall.getComponent<ColliderComponent>());
 }
 /**
     Render function to draw the game object to the screen
 */
 void CharacterHandler::render(){
     newplayer.render();
-    newplayer2.render();
-    newplayer3.render();
     wall.render();
 }
 
 void CharacterHandler::keyEventHandler(SDL_Event event){
     newplayer.keyEventListener(event);
-    newplayer2.keyEventListener(event);
-    newplayer3.keyEventListener(event);
 }

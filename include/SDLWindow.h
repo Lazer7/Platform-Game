@@ -7,6 +7,7 @@
 #include <SDL_image.h>
 #include "CharacterHandler.h"
 
+#include "Map.h"
 class SDLWindow
 {
     public:
@@ -27,8 +28,8 @@ class SDLWindow
     private:
         SDL_Window* window = NULL;
         SDL_Surface* screen_surface = NULL;
-        SDL_Texture* background;
         CharacterHandler characterHandler;
+        Map background;
         bool isRunning;
 };
 

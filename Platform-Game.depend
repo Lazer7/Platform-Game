@@ -2,13 +2,14 @@
 1528450562 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
 
-1528446997 d:\code\c++ projects\platform-game\include\sdlwindow.h
+1528616231 d:\code\c++ projects\platform-game\include\sdlwindow.h
 	<iostream>
 	<stdio.h>
 	<string>
 	<SDL.h>
 	<SDL_image.h>
 	"CharacterHandler.h"
+	"Map.h"
 
 1519925811 d:\code\c++ projects\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -388,9 +389,8 @@
 	"SDL_image.h"
 	"SDL.h"
 
-1528447260 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1528616410 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
-	"PlayableCharacter.h"
 
 1528355830 source:d:\code\c++ projects\platform-game\src\texturemanager.cpp
 	"TextureManager.h"
@@ -398,19 +398,19 @@
 1528441958 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
 	"Vector2D.h"
 
-1528529022 d:\code\c++ projects\platform-game\include\characterhandler.h
+1528618185 d:\code\c++ projects\platform-game\include\characterhandler.h
 	<vector>
 	<../components/Components.h>
 	"PlayableCharacter.h"
 
-1528529860 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
+1528618283 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
 	"CharacterHandler.h"
 
 1528529840 d:\code\c++ projects\platform-game\include\playablecharacter.h
 	"GameObject.h"
 	"../components/Components.h"
 
-1528528778 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
+1528616692 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
 	"PlayableCharacter.h"
 	<iostream>
 
@@ -418,4 +418,12 @@
 	<string>
 	<SDL.h>
 	"ComponentManager.h"
+
+1528618151 source:d:\code\c++ projects\platform-game\src\map.cpp
+	"Map.h"
+	<iostream>
+
+1528616975 d:\code\c++ projects\platform-game\include\map.h
+	"SDL.h"
+	"SDL_image.h"
 
