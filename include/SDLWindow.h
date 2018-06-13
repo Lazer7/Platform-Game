@@ -6,8 +6,9 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "CharacterHandler.h"
-
+#include "Media.h"
 #include "Map.h"
+
 class SDLWindow
 {
     public:
@@ -30,6 +31,7 @@ class SDLWindow
         SDL_Surface* screen_surface = NULL;
         CharacterHandler characterHandler;
         Map background;
+        Media music;
         bool isRunning;
 };
 

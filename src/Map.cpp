@@ -44,7 +44,7 @@ void Map::render( int x, int y, SDL_Rect* clip, double angle, SDL_Point* center,
 }
 void Map::update(){
     //Scroll background
-    scrollOffset-=10;
+    --scrollOffset;
     if( scrollOffset <  -width)
     {
         scrollOffset = 0;

@@ -1,14 +1,15 @@
 # depslib dependency file v1.0
-1528450562 source:d:\code\c++ projects\platform-game\main.cpp
+1528858230 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
 
-1528616231 d:\code\c++ projects\platform-game\include\sdlwindow.h
+1528858088 d:\code\c++ projects\platform-game\include\sdlwindow.h
 	<iostream>
 	<stdio.h>
 	<string>
 	<SDL.h>
 	<SDL_image.h>
 	"CharacterHandler.h"
+	"Media.h"
 	"Map.h"
 
 1519925811 d:\code\c++ projects\sdl2-2.0.8\i686-w64-mingw32\include\sdl2\sdl.h
@@ -389,7 +390,7 @@
 	"SDL_image.h"
 	"SDL.h"
 
-1528616410 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1528858591 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
 
 1528355830 source:d:\code\c++ projects\platform-game\src\texturemanager.cpp
@@ -419,11 +420,27 @@
 	<SDL.h>
 	"ComponentManager.h"
 
-1528618151 source:d:\code\c++ projects\platform-game\src\map.cpp
+1528619506 source:d:\code\c++ projects\platform-game\src\map.cpp
 	"Map.h"
 	<iostream>
 
 1528616975 d:\code\c++ projects\platform-game\include\map.h
 	"SDL.h"
 	"SDL_image.h"
+
+1528858376 source:d:\code\c++ projects\platform-game\src\media.cpp
+	"Media.h"
+
+1528857801 d:\code\c++ projects\platform-game\include\media.h
+	<stdio.h>
+	<SDL_mixer.h>
+
+1508776368 d:\code\c++ projects\sdl2_mixer-2.0.2\i686-w64-mingw32\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
 

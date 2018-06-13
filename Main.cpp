@@ -20,6 +20,7 @@ int main( int argc, char* args[] )
     }
 
     game.~SDLWindow();
+    system("pause");
 	return 0;
 }
 

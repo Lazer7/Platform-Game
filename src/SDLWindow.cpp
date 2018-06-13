@@ -1,6 +1,5 @@
 #include "SDLWindow.h"
 
-
 /**
     SDLWindow Initialization: Sets the attributes of the game window
     @param width of the screen
@@ -17,7 +16,7 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
         // Creates the window
         this->window = SDL_CreateWindow( title.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, fullscreen );
         this->renderer = SDL_CreateRenderer(this->window, -1 ,0);
-        if( this->window != NULL && this->renderer != NULL )
+        if( this->window != NULL && this->renderer != NULL && music.init("audio/Blessing.mp3"))
         {
             // Set background to white
             SDL_SetRenderDrawColor(this->renderer,255,255,255,255);
@@ -31,6 +30,7 @@ SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
         background.init(this->renderer,"assets/gamebackground.jpg");
         characterHandler.init(this->renderer);
 
+        music.play();
 
     }
     else
