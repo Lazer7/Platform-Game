@@ -1,5 +1,4 @@
 #include "CharacterHandler.h"
-
 /**
     Initializes all Character Assets in the Game
     TODO:: Refactor to place all characters in a vector

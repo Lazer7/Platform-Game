@@ -35,11 +35,13 @@
 			<Add option="-Wall" />
 			<Add directory="D:/Code/C++ Projects/SDL2-2.0.8/i686-w64-mingw32/include/SDL2" />
 			<Add directory="D:/Code/C++ Projects/SDL2_image-2.0.3/i686-w64-mingw32/include/SDL2" />
+			<Add directory="D:/Code/C++ Projects/SDL2_mixer-2.0.2/i686-w64-mingw32/include/SDL2" />
 		</Compiler>
 		<Linker>
-			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image" />
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer" />
 			<Add directory="D:/Code/C++ Projects/SDL2-2.0.8/i686-w64-mingw32/lib" />
 			<Add directory="D:/Code/C++ Projects/SDL2_image-2.0.3/i686-w64-mingw32/lib" />
+			<Add directory="D:/Code/C++ Projects/SDL2_mixer-2.0.2/i686-w64-mingw32/lib" />
 		</Linker>
 		<Unit filename="Main.cpp" />
 		<Unit filename="assets/down.bmp" />
@@ -50,6 +52,7 @@
 		<Unit filename="assets/right.bmp" />
 		<Unit filename="assets/test.bmp" />
 		<Unit filename="assets/up.bmp" />
+		<Unit filename="audio/Blessing.mp3" />
 		<Unit filename="components/ComponentManager.h" />
 		<Unit filename="components/Components.h" />
 		<Unit filename="components/SpriteRenderer.h" />
@@ -57,14 +60,18 @@
 		<Unit filename="include/CharacterHandler.h" />
 		<Unit filename="include/GameObject.h" />
 		<Unit filename="include/Map.h" />
+		<Unit filename="include/Media.h" />
 		<Unit filename="include/PlayableCharacter.h" />
 		<Unit filename="include/SDLWindow.h" />
 		<Unit filename="include/Vector2D.h" />
+		<Unit filename="include/WindowProperties.h" />
 		<Unit filename="src/CharacterHandler.cpp" />
 		<Unit filename="src/Map.cpp" />
+		<Unit filename="src/Media.cpp" />
 		<Unit filename="src/PlayableCharacter.cpp" />
 		<Unit filename="src/SDLWindow.cpp" />
 		<Unit filename="src/Vector2D.cpp" />
+		<Unit filename="src/WindowProperties.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

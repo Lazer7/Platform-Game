@@ -12,15 +12,14 @@
 class SDLWindow
 {
     public:
-        SDLWindow(int,int,std:: string,bool);
+        SDLWindow();
         virtual ~SDLWindow();
         void handleEvents();
         void render();
         void update();
         bool running(){return isRunning;}
-
         void loadMedia(std:: string);
-        void capFrameRate(int,int);
+        void capFrameRate(int);
         SDL_Renderer* renderer;
         SDL_Event event;
 

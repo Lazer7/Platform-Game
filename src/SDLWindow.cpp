@@ -1,5 +1,5 @@
 #include "SDLWindow.h"
-
+#include "WindowProperties.h"
 /**
     SDLWindow Initialization: Sets the attributes of the game window
     @param width of the screen
@@ -7,14 +7,19 @@
     @param title of the screen
     @param fullscreen is a boolean to make the game fullscreen or not
 */
-SDLWindow::SDLWindow(int width,int height,std::string title,bool fullscreen)
+SDLWindow::SDLWindow()
 {
-    if( SDL_Init(SDL_INIT_EVERYTHING) == 0 )
+    if( SDL_Init(SDL_INIT_EVERYTHING) == 0 && WindowProperties::init())
     {
         // Set flag to notify the system is running
         this->isRunning=true;
         // Creates the window
-        this->window = SDL_CreateWindow( title.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, fullscreen );
+        this->window = SDL_CreateWindow( WindowProperties::title.c_str(),
+                                        SDL_WINDOWPOS_UNDEFINED,
+                                        SDL_WINDOWPOS_UNDEFINED,
+                                        WindowProperties::windowValue.width,
+                                        WindowProperties::windowValue.height,
+                                        WindowProperties::windowValue.fullscreen );
         this->renderer = SDL_CreateRenderer(this->window, -1 ,0);
         if( this->window != NULL && this->renderer != NULL && music.init("audio/Blessing.mp3"))
         {
@@ -88,7 +93,8 @@ int cnt=0;
     @param FPS the frame per second
     @param frameStart the starting frame time
 */
-void SDLWindow:: capFrameRate(int FPS, int frameStart){
+void SDLWindow:: capFrameRate(int frameStart){
+    int FPS = WindowProperties::windowValue.FPS;
     int frameTime = SDL_GetTicks() - frameStart;
 
     printf("Frame Started %d\n", cnt );

@@ -20,12 +20,12 @@ void PlayableCharacter::update(){
     else{isJumpingDown=false;getComponent<TransformComponent>().velocity.y=0;}
 
     if(isMovingRight){
-        getComponent<TransformComponent>().velocity.x=3;
+        getComponent<TransformComponent>().velocity.x=5;
         getComponent<SpriteRenderer>().setTexture("assets/main_character_right.png");
 
     }
     else if(isMovingLeft){
-        getComponent<TransformComponent>().velocity.x=-3;
+        getComponent<TransformComponent>().velocity.x=-5;
         getComponent<SpriteRenderer>().setTexture("assets/main_character_left.png");
     }
     else{

@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1528858230 source:d:\code\c++ projects\platform-game\main.cpp
+1528955462 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
 
-1528858088 d:\code\c++ projects\platform-game\include\sdlwindow.h
+1528955404 d:\code\c++ projects\platform-game\include\sdlwindow.h
 	<iostream>
 	<stdio.h>
 	<string>
@@ -352,17 +352,10 @@
 	"begin_code.h"
 	"close_code.h"
 
-1528355817 d:\code\c++ projects\platform-game\include\texturemanager.h
-	<SDLWindow.h>
-
-1528432165 source:d:\code\c++ projects\platform-game\src\gameobject.cpp
-	"GameObject.h"
-
-1528529125 d:\code\c++ projects\platform-game\include\gameobject.h
-	<iostream>
-	<string>
-	"../components/ComponentManager.h"
-	<typeinfo>
+1528618185 d:\code\c++ projects\platform-game\include\characterhandler.h
+	<vector>
+	<../components/Components.h>
+	"PlayableCharacter.h"
 
 1528528651 d:\code\c++ projects\platform-game\components\components.h
 	"ComponentManager.h"
@@ -390,46 +383,20 @@
 	"SDL_image.h"
 	"SDL.h"
 
-1528858591 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
-	"SDLWindow.h"
-
-1528355830 source:d:\code\c++ projects\platform-game\src\texturemanager.cpp
-	"TextureManager.h"
-
-1528441958 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
-	"Vector2D.h"
-
-1528618185 d:\code\c++ projects\platform-game\include\characterhandler.h
-	<vector>
-	<../components/Components.h>
-	"PlayableCharacter.h"
-
-1528618283 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
-	"CharacterHandler.h"
-
-1528529840 d:\code\c++ projects\platform-game\include\playablecharacter.h
-	"GameObject.h"
-	"../components/Components.h"
-
-1528616692 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
-	"PlayableCharacter.h"
-	<iostream>
-
 1528528772 d:\code\c++ projects\platform-game\components\collidercomponent.h
 	<string>
 	<SDL.h>
 	"ComponentManager.h"
 
-1528619506 source:d:\code\c++ projects\platform-game\src\map.cpp
-	"Map.h"
+1528529840 d:\code\c++ projects\platform-game\include\playablecharacter.h
+	"GameObject.h"
+	"../components/Components.h"
+
+1528529125 d:\code\c++ projects\platform-game\include\gameobject.h
 	<iostream>
-
-1528616975 d:\code\c++ projects\platform-game\include\map.h
-	"SDL.h"
-	"SDL_image.h"
-
-1528858376 source:d:\code\c++ projects\platform-game\src\media.cpp
-	"Media.h"
+	<string>
+	"../components/ComponentManager.h"
+	<typeinfo>
 
 1528857801 d:\code\c++ projects\platform-game\include\media.h
 	<stdio.h>
@@ -443,4 +410,38 @@
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
+
+1528616975 d:\code\c++ projects\platform-game\include\map.h
+	"SDL.h"
+	"SDL_image.h"
+
+1528937134 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
+	"CharacterHandler.h"
+
+1528619506 source:d:\code\c++ projects\platform-game\src\map.cpp
+	"Map.h"
+	<iostream>
+
+1528858376 source:d:\code\c++ projects\platform-game\src\media.cpp
+	"Media.h"
+
+1528936809 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
+	"PlayableCharacter.h"
+	<iostream>
+
+1528441958 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
+	"Vector2D.h"
+
+1528955532 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+	"SDLWindow.h"
+	"WindowProperties.h"
+
+1528955514 source:d:\code\c++ projects\platform-game\src\windowproperties.cpp
+	"WindowProperties.h"
+
+1528955089 d:\code\c++ projects\platform-game\include\windowproperties.h
+	<iostream>
+	<fstream>
+	<string>
+	<windows.h>
 
