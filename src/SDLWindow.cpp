@@ -19,7 +19,7 @@ SDLWindow::SDLWindow()
                                         SDL_WINDOWPOS_UNDEFINED,
                                         WindowProperties::windowValue.width,
                                         WindowProperties::windowValue.height,
-                                        WindowProperties::windowValue.fullscreen );
+                                        SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE );
         this->renderer = SDL_CreateRenderer(this->window, -1 ,0);
         if( this->window != NULL && this->renderer != NULL && music.init("audio/Blessing.mp3"))
         {
@@ -32,7 +32,7 @@ SDLWindow::SDLWindow()
             printf( "Something could not be created! SDL_Error: %s\n", SDL_GetError() );
             this->isRunning = false;
         }
-        background.init(this->renderer,"assets/gamebackground.jpg");
+        background.init(this->renderer,"assets/gamebackground2.png");
         characterHandler.init(this->renderer);
 
         music.play();
@@ -66,6 +66,7 @@ void SDLWindow:: handleEvents(){
             isRunning=false;
             break;
         default:
+            WindowProperties::resizeWindowEvent(event,this->window);
             characterHandler.keyEventHandler(event);
             break;
     }
@@ -97,7 +98,7 @@ void SDLWindow:: capFrameRate(int frameStart){
     int FPS = WindowProperties::windowValue.FPS;
     int frameTime = SDL_GetTicks() - frameStart;
 
-    printf("Frame Started %d\n", cnt );
+    //printf("Frame Started %d\n", cnt );
     cnt++;
     if((1000/FPS)> frameTime){
         SDL_Delay((1000/FPS) - frameTime);

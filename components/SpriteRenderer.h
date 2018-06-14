@@ -69,8 +69,10 @@ class SpriteRenderer : public Component
             {
                 srcRect.x = srcRect.w * static_cast<int>((SDL_GetTicks()/speed)%frames);
             }
-            destRect.x = (int)transformer->position.x;
-            destRect.y = (int)transformer->position.y;
+            destRect.w = transformer->getWidth();
+            destRect.h = transformer->getHeight();
+            destRect.x = (int)transformer->x();
+            destRect.y = (int)transformer->y();
         }
         void draw() override
         {

@@ -18,7 +18,7 @@ class Map
 
     private:
         bool isScroll=false;
-        int scrollOffset=0,width=0,height=0;
+        int scrollOffset=0;
         SDL_Texture* spriteSheetTexture;
         SDL_Renderer* renderer;
 };

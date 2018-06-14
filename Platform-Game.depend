@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1528955462 source:d:\code\c++ projects\platform-game\main.cpp
+1528959622 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
 
 1528955404 d:\code\c++ projects\platform-game\include\sdlwindow.h
@@ -371,15 +371,16 @@
 	<bitset>
 	<array>
 
-1528956267 d:\code\c++ projects\platform-game\components\transformcomponent.h
+1528963153 d:\code\c++ projects\platform-game\components\transformcomponent.h
 	"../include/Vector2D.h"
 	<iostream>
 	"../include/WindowProperties.h"
+	<math.h>
 
 1528355493 d:\code\c++ projects\platform-game\include\vector2d.h
 	<iostream>
 
-1528498968 d:\code\c++ projects\platform-game\components\spriterenderer.h
+1528962255 d:\code\c++ projects\platform-game\components\spriterenderer.h
 	"Components.h"
 	"SDL_image.h"
 	"SDL.h"
@@ -412,7 +413,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1528956371 d:\code\c++ projects\platform-game\include\map.h
+1528959463 d:\code\c++ projects\platform-game\include\map.h
 	"SDL.h"
 	"SDL_image.h"
 	"WindowProperties.h"
@@ -420,7 +421,7 @@
 1528937134 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
 	"CharacterHandler.h"
 
-1528956435 source:d:\code\c++ projects\platform-game\src\map.cpp
+1528963288 source:d:\code\c++ projects\platform-game\src\map.cpp
 	"Map.h"
 	<iostream>
 
@@ -434,16 +435,17 @@
 1528441958 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
 	"Vector2D.h"
 
-1528955532 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1528959090 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
 	"WindowProperties.h"
 
-1528956475 source:d:\code\c++ projects\platform-game\src\windowproperties.cpp
+1528963302 source:d:\code\c++ projects\platform-game\src\windowproperties.cpp
 	"WindowProperties.h"
 
-1528955089 d:\code\c++ projects\platform-game\include\windowproperties.h
+1528962977 d:\code\c++ projects\platform-game\include\windowproperties.h
 	<iostream>
 	<fstream>
 	<string>
 	<windows.h>
+	<SDL.h>
 

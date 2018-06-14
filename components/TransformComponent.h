@@ -4,6 +4,7 @@
 #include "../include/Vector2D.h"
 #include <iostream>
 #include "../include/WindowProperties.h"
+#include <math.h>
 using namespace std;
 /**
     Holds Game Object Locations on the screen
@@ -17,31 +18,35 @@ public:
 
     int height;
     int width;
-    float scale;
     TransformComponent()
     {
         position.x=0.0f;
         position.y=0.0f;
-        scale = WindowProperties::windowValue.scale;
-        height = 32*scale;
-        width = 32*scale;
+        height = 32;
+        width = 32;
     }
     TransformComponent(float x, float y)
     {
-        position.x = x;
-        position.y = y;
-        scale = WindowProperties::windowValue.scale;
-        height = 32*scale;
-        width = 32*scale;
+        position.x = x + WindowProperties::getWidthDisposition();
+        position.y = y + WindowProperties::getHeightDisposition();
+        height = 32;
+        width = 32;
     }
     TransformComponent(float x, float y, int height, int width)
     {
         position.x = x;
         position.y = y;
-        scale = WindowProperties::windowValue.scale;
-        this->height = height*scale;
-        this->width = width*scale;
+        this->height = height;
+        this->width = width;
     }
+    int getWidth(){
+        return width*WindowProperties::windowValue.Wscale;
+    }
+    int getHeight(){
+        return height*WindowProperties::windowValue.Hscale;
+    }
+    int x(){return ceil((float)position.x * WindowProperties::getWidthDisposition());}
+    int y(){return ceil((float)position.y * WindowProperties::getHeightDisposition());}
     void init() override
     {
         velocity.x=0;

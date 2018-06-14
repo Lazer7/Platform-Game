@@ -22,6 +22,7 @@ bool WindowProperties::init(){
     return false;
 }
 void WindowProperties::setWindowProperties(WindowValue scale){
+    remove("data/WindowScreen.dat");
     std::ofstream out("data/WindowScreen.dat",std::ios::binary);
     out.write((char*) &scale, sizeof(scale));
     int attributes = GetFileAttributes("data/WindowScreen.dat");
@@ -31,12 +32,13 @@ void WindowProperties::setWindowProperties(WindowValue scale){
     windowValue=scale;
     out.close();
 }
-void WindowProperties::setWindowProperties(int w,int h,int s, int FPS, bool fullscreen){
+void WindowProperties::setWindowProperties(int w,int h,float Ws,float Hs, int FPS, bool fullscreen){
     WindowValue scale;
     scale.fullscreen=fullscreen;
     scale.width=w;
     scale.height=h;
-    scale.scale = s;
+    scale.Wscale = Ws;
+    scale.Hscale = Hs;
     scale.FPS = FPS;
     setWindowProperties(scale);
 }
@@ -45,7 +47,31 @@ void WindowProperties::setDefaultWindowProperties(){
     scale.fullscreen=false;
     scale.width=1000;
     scale.height=600;
-    scale.scale = 1;
+    scale.Wscale = 1;
+    scale.Hscale = 1;
     scale.FPS = 60;
     setWindowProperties(scale);
+}
+
+void WindowProperties::resizeWindowEvent(SDL_Event event,SDL_Window* window){
+    if(event.type == SDL_WINDOWEVENT){
+        switch(event.window.event){
+        case SDL_WINDOWEVENT_SIZE_CHANGED:
+            float wScale = (float)(event.window.data1) /1000.0f;
+            float hScale = (float)event.window.data2 /600.0f;
+            WindowProperties::setWindowProperties(event.window.data1,
+                                                 event.window.data2,
+                                                 wScale,
+                                                 hScale,
+                                                 WindowProperties::windowValue.FPS,
+                                                 WindowProperties::windowValue.fullscreen);
+        break;
+        }
+    }
+}
+float WindowProperties::getWidthDisposition(){
+    return (float)WindowProperties::windowValue.width/1000.0f;
+}
+float WindowProperties::getHeightDisposition(){
+    return (float)WindowProperties::windowValue.height/600.0f;
 }
