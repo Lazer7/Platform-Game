@@ -16,8 +16,8 @@ void Map:: init(SDL_Renderer* renderer,const char* spriteMap)
 void Map::setTexture(const char* spriteMap){
     SDL_Surface* tempSurface = IMG_Load(spriteMap);
     spriteSheetTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
-    width = 1000;
-    height = 600;
+    width = WindowProperties::windowValue.width;
+    height = WindowProperties::windowValue.height;
     SDL_FreeSurface(tempSurface);
 }
 

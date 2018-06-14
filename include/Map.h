@@ -2,6 +2,7 @@
 #define MAP_H
 #include "SDL.h"
 #include "SDL_image.h"
+#include "WindowProperties.h"
 class Map
 {
     public:
@@ -16,7 +17,6 @@ class Map
     protected:
 
     private:
-
         bool isScroll=false;
         int scrollOffset=0,width=0,height=0;
         SDL_Texture* spriteSheetTexture;

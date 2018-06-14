@@ -43,7 +43,7 @@ void WindowProperties::setWindowProperties(int w,int h,int s, int FPS, bool full
 void WindowProperties::setDefaultWindowProperties(){
     WindowValue scale;
     scale.fullscreen=false;
-    scale.width=800;
+    scale.width=1000;
     scale.height=600;
     scale.scale = 1;
     scale.FPS = 60;

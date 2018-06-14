@@ -371,9 +371,10 @@
 	<bitset>
 	<array>
 
-1528498909 d:\code\c++ projects\platform-game\components\transformcomponent.h
+1528956267 d:\code\c++ projects\platform-game\components\transformcomponent.h
 	"../include/Vector2D.h"
 	<iostream>
+	"../include/WindowProperties.h"
 
 1528355493 d:\code\c++ projects\platform-game\include\vector2d.h
 	<iostream>
@@ -411,21 +412,22 @@
 	"begin_code.h"
 	"close_code.h"
 
-1528616975 d:\code\c++ projects\platform-game\include\map.h
+1528956371 d:\code\c++ projects\platform-game\include\map.h
 	"SDL.h"
 	"SDL_image.h"
+	"WindowProperties.h"
 
 1528937134 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
 	"CharacterHandler.h"
 
-1528619506 source:d:\code\c++ projects\platform-game\src\map.cpp
+1528956435 source:d:\code\c++ projects\platform-game\src\map.cpp
 	"Map.h"
 	<iostream>
 
 1528858376 source:d:\code\c++ projects\platform-game\src\media.cpp
 	"Media.h"
 
-1528936809 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
+1528956175 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
 	"PlayableCharacter.h"
 	<iostream>
 
@@ -436,7 +438,7 @@
 	"SDLWindow.h"
 	"WindowProperties.h"
 
-1528955514 source:d:\code\c++ projects\platform-game\src\windowproperties.cpp
+1528956475 source:d:\code\c++ projects\platform-game\src\windowproperties.cpp
 	"WindowProperties.h"
 
 1528955089 d:\code\c++ projects\platform-game\include\windowproperties.h
