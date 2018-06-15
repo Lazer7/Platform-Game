@@ -57,14 +57,21 @@ void WindowProperties::resizeWindowEvent(SDL_Event event,SDL_Window* window){
     if(event.type == SDL_WINDOWEVENT){
         switch(event.window.event){
         case SDL_WINDOWEVENT_SIZE_CHANGED:
-            float wScale = (float)(event.window.data1) /1000.0f;
-            float hScale = (float)event.window.data2 /600.0f;
-            WindowProperties::setWindowProperties(event.window.data1,
-                                                 event.window.data2,
-                                                 wScale,
-                                                 hScale,
-                                                 WindowProperties::windowValue.FPS,
-                                                 WindowProperties::windowValue.fullscreen);
+            if(event.window.data1 < 1000 || event.window.data2 < 600){
+                WindowProperties::setDefaultWindowProperties();
+                SDL_SetWindowSize(window,1000,600);
+            }
+            else{
+                float wScale = (float)(event.window.data1) /1000.0f;
+                float hScale = (float)(event.window.data2) /600.0f;
+                WindowProperties::setWindowProperties(event.window.data1,
+                                                     event.window.data2,
+                                                     wScale,
+                                                     hScale,
+                                                     WindowProperties::windowValue.FPS,
+                                                     WindowProperties::windowValue.fullscreen);
+
+            }
         break;
         }
     }

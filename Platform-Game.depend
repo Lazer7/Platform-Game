@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1528959622 source:d:\code\c++ projects\platform-game\main.cpp
+1529032359 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
 
 1528955404 d:\code\c++ projects\platform-game\include\sdlwindow.h
@@ -435,11 +435,11 @@
 1528441958 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
 	"Vector2D.h"
 
-1528959090 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1529032369 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
 	"WindowProperties.h"
 
-1528963302 source:d:\code\c++ projects\platform-game\src\windowproperties.cpp
+1529032371 source:d:\code\c++ projects\platform-game\src\windowproperties.cpp
 	"WindowProperties.h"
 
 1528962977 d:\code\c++ projects\platform-game\include\windowproperties.h

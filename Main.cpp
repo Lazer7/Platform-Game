@@ -1,7 +1,4 @@
-
 #include "SDLWindow.h"
-
-
 int main( int argc, char* args[] )
 {
     int frameStart;
