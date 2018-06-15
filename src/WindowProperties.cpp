@@ -1,15 +1,23 @@
 #include "WindowProperties.h"
+
+// Static window properties
 const std::string WindowProperties::title="Platform Game";
 WindowValue WindowProperties::windowValue;
-bool WindowProperties::init(){
+
+/**
+    Initialize Window settings from the WindowScreen.dat file
+*/
+bool WindowProperties::init() {
     WindowValue scale;
     std::ifstream data("data/WindowScreen.dat",std::ios::binary);
-    if(data.is_open()){
+    // checks if file exist
+    if(data.is_open()) {
         data.read((char *) &scale,sizeof(scale));
         windowValue=scale;
         return true;
     }
-    else{
+    // If not initialize with default data
+    else {
         setDefaultWindowProperties();
         std::ifstream data("data/WindowScreen.dat",std::ios::binary);
         if(data.is_open()){
@@ -21,18 +29,24 @@ bool WindowProperties::init(){
     data.close();
     return false;
 }
-void WindowProperties::setWindowProperties(WindowValue scale){
+/**
+    Set Window Properties with scale values
+*/
+void WindowProperties::setWindowProperties(WindowValue scale) {
     remove("data/WindowScreen.dat");
     std::ofstream out("data/WindowScreen.dat",std::ios::binary);
     out.write((char*) &scale, sizeof(scale));
     int attributes = GetFileAttributes("data/WindowScreen.dat");
-    if((attributes & FILE_ATTRIBUTE_HIDDEN)==0){
+    if((attributes & FILE_ATTRIBUTE_HIDDEN)==0) {
         SetFileAttributes("data/WindowScreen.dat", attributes + FILE_ATTRIBUTE_HIDDEN);
     }
     windowValue=scale;
     out.close();
 }
-void WindowProperties::setWindowProperties(int w,int h,float Ws,float Hs, int FPS, bool fullscreen){
+/**
+    Set Window Properties with scale values
+*/
+void WindowProperties::setWindowProperties(int w,int h,float Ws,float Hs, int FPS, bool fullscreen) {
     WindowValue scale;
     scale.fullscreen=fullscreen;
     scale.width=w;
@@ -42,7 +56,10 @@ void WindowProperties::setWindowProperties(int w,int h,float Ws,float Hs, int FP
     scale.FPS = FPS;
     setWindowProperties(scale);
 }
-void WindowProperties::setDefaultWindowProperties(){
+/**
+    Reset Window Properties
+*/
+void WindowProperties::setDefaultWindowProperties() {
     WindowValue scale;
     scale.fullscreen=false;
     scale.width=1000;
@@ -52,12 +69,14 @@ void WindowProperties::setDefaultWindowProperties(){
     scale.FPS = 60;
     setWindowProperties(scale);
 }
-
-void WindowProperties::resizeWindowEvent(SDL_Event event,SDL_Window* window){
+/**
+    Change Window setting based on window event actions
+*/
+void WindowProperties::resizeWindowEvent(SDL_Event event,SDL_Window* window) {
     if(event.type == SDL_WINDOWEVENT){
         switch(event.window.event){
         case SDL_WINDOWEVENT_SIZE_CHANGED:
-            if(event.window.data1 < 1000 || event.window.data2 < 600){
+            if(event.window.data1 < 1000 || event.window.data2 < 600) {
                 WindowProperties::setDefaultWindowProperties();
                 SDL_SetWindowSize(window,1000,600);
             }
@@ -76,9 +95,15 @@ void WindowProperties::resizeWindowEvent(SDL_Event event,SDL_Window* window){
         }
     }
 }
-float WindowProperties::getWidthDisposition(){
+/**
+    Get the window's width distortion based on the orignal size
+*/
+float WindowProperties::getWidthDisposition() {
     return (float)WindowProperties::windowValue.width/1000.0f;
 }
-float WindowProperties::getHeightDisposition(){
+/**
+    Get the window's height distortion based on the orignal size
+*/
+float WindowProperties::getHeightDisposition() {
     return (float)WindowProperties::windowValue.height/600.0f;
 }

@@ -7,7 +7,7 @@
 class Media
 {
     public:
-        Media();
+        Media()= default;
         virtual ~Media();
         bool init(const char*);
         bool loadMusic(const char*);

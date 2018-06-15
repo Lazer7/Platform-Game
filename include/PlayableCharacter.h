@@ -2,6 +2,9 @@
 #define PLAYABLECHARACTER_H
 #include "GameObject.h"
 #include "../components/Components.h"
+#include "WindowProperties.h"
+#include <iostream>
+using namespace std;
 
 class PlayableCharacter : public GameObject
 {

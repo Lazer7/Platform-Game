@@ -5,9 +5,10 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_image.h>
-#include "CharacterHandler.h"
-#include "Media.h"
-#include "Map.h"
+#include "WindowProperties.h"
+#include "AssetHandler.h"
+
+
 
 class SDLWindow
 {
@@ -28,9 +29,7 @@ class SDLWindow
     private:
         SDL_Window* window = NULL;
         SDL_Surface* screen_surface = NULL;
-        CharacterHandler characterHandler;
-        Map background;
-        Media music;
+        AssetHandler assetHandler;
         bool isRunning;
 };
 

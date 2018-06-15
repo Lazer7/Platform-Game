@@ -89,6 +89,13 @@ class Manager{
         void draw(){
             for(auto& e: entities) e->draw();
         }
+        void destroyEntities(){
+            entities.erase(std::remove_if(std::begin(entities),std::end(entities),
+            [](const std::unique_ptr<Entity>&mEntity){
+                return true;
+            }), std::end(entities));
+            std:: cout << "Erased Stuff " << std::endl;
+        }
         void refresh(){
             entities.erase(std::remove_if(std::begin(entities),std::end(entities),
             [](const std::unique_ptr<Entity>&mEntity){
@@ -101,6 +108,5 @@ class Manager{
             entities.emplace_back(std::move(uPtr));
             return *e;
         }
-
 };
 #endif

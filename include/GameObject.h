@@ -12,15 +12,17 @@ class GameObject
     public:
             // Constructor
         GameObject():entityHandler(this->manager.addEntity()){};
+        virtual ~GameObject(){
+            manager.destroyEntities();
+        }
         // Add and Get Components
         template <typename T,typename... Args> void addComponent(Args... args){
             entityHandler.addComponent<T>(args...);
-
         }
         template <typename T> T& getComponent(){
             entityHandler.getComponent<T>();
         }
-//    protected:
+
         // Component Manager
         Manager manager;
         Entity& entityHandler;
