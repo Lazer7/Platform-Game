@@ -1,6 +1,6 @@
-#ifndef CHARACTERHANDLER_H
-#define CHARACTERHANDLER_H
-#include <vector>
+#ifndef ASSETHANDLER_H
+#define ASSETHANDLER_H
+#include <list>
 #include <../components/Components.h>
 #include "PlayableCharacter.h"
 #include "Map.h"
@@ -18,9 +18,12 @@ class AssetHandler
         PlayableCharacter newplayer;
         GameObject wall;
     private:
+        void addPlatform();
+        SDL_Renderer* renderer;
         Map background;
         Media music;
+        int frameStart;
 
 };
 
-#endif // CHARACTERHANDLER_H
+#endif // ASSETHANDLER_H

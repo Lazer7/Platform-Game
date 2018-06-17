@@ -20,7 +20,8 @@ class GameObject
             entityHandler.addComponent<T>(args...);
         }
         template <typename T> T& getComponent(){
-            entityHandler.getComponent<T>();
+            return entityHandler.getComponent<T>();
+
         }
 
         // Component Manager

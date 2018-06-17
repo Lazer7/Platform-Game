@@ -362,7 +362,7 @@
 	"SpriteRenderer.h"
 	"ColliderComponent.h"
 
-1529037267 d:\code\c++ projects\platform-game\components\componentmanager.h
+1529218929 d:\code\c++ projects\platform-game\components\componentmanager.h
 	<iostream>
 	<vector>
 	<memory>
@@ -395,7 +395,7 @@
 	"WindowProperties.h"
 	<iostream>
 
-1529046070 d:\code\c++ projects\platform-game\include\gameobject.h
+1529218875 d:\code\c++ projects\platform-game\include\gameobject.h
 	<iostream>
 	<string>
 	"../components/ComponentManager.h"
@@ -429,7 +429,7 @@
 1529048877 source:d:\code\c++ projects\platform-game\src\media.cpp
 	"Media.h"
 
-1529048516 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
+1529116953 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
 	"PlayableCharacter.h"
 
 1529044983 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
@@ -448,13 +448,40 @@
 	<windows.h>
 	<SDL.h>
 
-1529035016 d:\code\c++ projects\platform-game\include\assethandler.h
-	<vector>
+1529218266 d:\code\c++ projects\platform-game\include\assethandler.h
+	<list>
 	<../components/Components.h>
 	"PlayableCharacter.h"
 	"Map.h"
 	"Media.h"
 
-1529049095 source:d:\code\c++ projects\platform-game\src\assethandler.cpp
+1529218853 source:d:\code\c++ projects\platform-game\src\assethandler.cpp
 	"AssetHandler.h"
+	"Platforms/platformTypes.h"
+	"Platforms/platform.h"
+	"Platforms/platformFactory.h"
+
+1529217101 d:\code\c++ projects\platform-game\include\platforms\platformfactory.h
+	<string>
+	<iostream>
+	<ctime>
+	"Platforms/platform.h"
+	"Platforms/platformTypes.h"
+	"SDL.h"
+	"WindowProperties.h"
+
+1529218853 d:\code\c++ projects\platform-game\include\platforms\platform.h
+	<iostream>
+	<string>
+	"../components/Components.h"
+	"GameObject.h"
+
+1529120903 d:\code\c++ projects\platform-game\include\platforms\platformtypes.h
+	<string>
+	<iostream>
+	<vector>
+	<dirent.h>
+
+1529136182 source:d:\code\c++ projects\platform-game\include\platforms\platformtypes.cpp
+	"Platforms/platformTypes.h"
 

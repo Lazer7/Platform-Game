@@ -1,4 +1,3 @@
-
 #ifndef COMPONENTMANAGER_H
 #define COMPONENTMANAGER_H
 #include <iostream>
@@ -46,6 +45,15 @@ class Entity{
         ComponentArray componentArray;
         ComponentBitSet componentBitSet;
     public:
+        Entity()=default;
+        Entity(Entity& other){
+            other.components = std::move(components);
+        };
+        Entity& operator=(Entity& other){
+            other.components = std::move(components);
+            return other;
+        };
+
         void update()
         {
             for(auto& c: components) c->update();
@@ -83,6 +91,15 @@ class Manager{
     private:
         std::vector<std::unique_ptr<Entity>> entities;
     public:
+        Manager()=default;
+        Manager(Manager& other){
+            other.entities = std::move(entities);
+        };
+        Manager& operator=(Manager& other){
+            other.entities = std::move(entities);
+            return other;
+        };
+
         void update(){
             for(auto& e : entities) e->update();
         }
