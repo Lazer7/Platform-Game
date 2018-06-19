@@ -1,6 +1,7 @@
 #ifndef PLATFORMTYPES_H
 #define PLATFORMTYPES_H
 #include <string>
+#include <cstring>
 #include <iostream>
 #include <vector>
 #include <dirent.h>

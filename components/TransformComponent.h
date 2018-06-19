@@ -32,7 +32,7 @@ public:
         height = 32;
         width = 32;
     }
-    TransformComponent(float x, float y, int height, int width)
+    TransformComponent(float x, float y, int width, int height)
     {
         position.x = x;
         position.y = y;

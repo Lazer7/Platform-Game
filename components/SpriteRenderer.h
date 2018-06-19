@@ -23,8 +23,9 @@ class SpriteRenderer : public Component
 
     public:
         // Overloaded Constructors
-        SpriteRenderer(SDL_Renderer* renderer){
+        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet){
             this->renderer = renderer;
+            setTexture(spriteSheet);
         };
 
         SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int srcWidth, int srcHeight){
@@ -49,6 +50,8 @@ class SpriteRenderer : public Component
         void setTexture(const char* spriteSheet){
             SDL_Surface* tempSurface = IMG_Load(spriteSheet);
             spriteSheetTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+            srcWidth = tempSurface->w;
+            srcHeight = tempSurface->h;
             SDL_FreeSurface(tempSurface);
         }
         void init() override

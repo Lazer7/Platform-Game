@@ -32,8 +32,8 @@ class Platform : public GameObject{
             this->x=x;
             this->y=y;
             this->platformType=platformType;
-            this->addComponent<TransformComponent>(x,y,100,50);
-            this->addComponent<SpriteRenderer>(renderer,platformType,100,50);
+            this->addComponent<TransformComponent>(x,y,150,75);
+            this->addComponent<SpriteRenderer>(renderer,platformType);
             this->addComponent<ColliderComponent>("Platform");
             this->getComponent<TransformComponent>().velocity.x =-1;
         }

@@ -10,8 +10,8 @@ void PlatformTypes::setPlatformType(std::string type){
     dp = opendir( path.c_str());
     while((dirp = readdir(dp))){
         std::string filepath = path+"/" + dirp->d_name;
-        PlatformTypes::platforms.push_back(filepath);
-        // std:: cout << dirp->d_name << std::endl;
-        std:: cout << filepath << std::endl;
+        if(strcmp(dirp->d_name,"..")!=0 && strcmp(dirp->d_name,".")!=0 ){
+            PlatformTypes::platforms.push_back(filepath);
+        }
     }
 }

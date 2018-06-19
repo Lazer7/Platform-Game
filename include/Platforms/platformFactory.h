@@ -14,12 +14,11 @@ class PlatformFactory{
             Platform Creater that creates a random platform and return it as a game object
         */
         static Platform Create(SDL_Renderer* renderer, std::string type){
-             int jumpHeights[3] = {150, 250, 350};
+            int jumpHeights[4] = {150, 250, 350, 450};
             srand(time(NULL));
             PlatformTypes::setPlatformType(type);
             Platform platform;
-            std::cout << PlatformTypes::platforms[2] << std::endl;
-            platform.init(renderer, PlatformTypes::platforms[2].c_str(),WindowProperties::windowValue.width,jumpHeights[rand()%3]);
+            platform.init(renderer, PlatformTypes::platforms[rand()%5].c_str(),WindowProperties::windowValue.width,jumpHeights[rand()%4]);
             return platform;
         }
 

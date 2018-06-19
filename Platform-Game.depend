@@ -370,7 +370,7 @@
 	<bitset>
 	<array>
 
-1528963153 d:\code\c++ projects\platform-game\components\transformcomponent.h
+1529441974 d:\code\c++ projects\platform-game\components\transformcomponent.h
 	"../include/Vector2D.h"
 	<iostream>
 	"../include/WindowProperties.h"
@@ -379,7 +379,7 @@
 1528355493 d:\code\c++ projects\platform-game\include\vector2d.h
 	<iostream>
 
-1528962255 d:\code\c++ projects\platform-game\components\spriterenderer.h
+1529447839 d:\code\c++ projects\platform-game\components\spriterenderer.h
 	"Components.h"
 	"SDL_image.h"
 	"SDL.h"
@@ -429,7 +429,7 @@
 1529048877 source:d:\code\c++ projects\platform-game\src\media.cpp
 	"Media.h"
 
-1529116953 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
+1529450225 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
 	"PlayableCharacter.h"
 
 1529044983 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
@@ -455,13 +455,13 @@
 	"Map.h"
 	"Media.h"
 
-1529218853 source:d:\code\c++ projects\platform-game\src\assethandler.cpp
+1529448396 source:d:\code\c++ projects\platform-game\src\assethandler.cpp
 	"AssetHandler.h"
 	"Platforms/platformTypes.h"
 	"Platforms/platform.h"
 	"Platforms/platformFactory.h"
 
-1529217101 d:\code\c++ projects\platform-game\include\platforms\platformfactory.h
+1529448053 d:\code\c++ projects\platform-game\include\platforms\platformfactory.h
 	<string>
 	<iostream>
 	<ctime>
@@ -470,18 +470,19 @@
 	"SDL.h"
 	"WindowProperties.h"
 
-1529218853 d:\code\c++ projects\platform-game\include\platforms\platform.h
+1529447828 d:\code\c++ projects\platform-game\include\platforms\platform.h
 	<iostream>
 	<string>
 	"../components/Components.h"
 	"GameObject.h"
 
-1529120903 d:\code\c++ projects\platform-game\include\platforms\platformtypes.h
+1529447103 d:\code\c++ projects\platform-game\include\platforms\platformtypes.h
 	<string>
+	<cstring>
 	<iostream>
 	<vector>
 	<dirent.h>
 
-1529136182 source:d:\code\c++ projects\platform-game\include\platforms\platformtypes.cpp
+1529447947 source:d:\code\c++ projects\platform-game\include\platforms\platformtypes.cpp
 	"Platforms/platformTypes.h"
 

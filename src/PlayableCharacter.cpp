@@ -1,6 +1,7 @@
 #include "PlayableCharacter.h"
 // TODO:: JUMP MECHANIC DOESN'T SCALE WITH WINDOW HEIGHT RESIZE
-
+int orignal_height;
+bool notOnPlatform;
 /**
     Initalizes the Player Game Object at specified location
     @param renderer the game renderer the player object will be rendered on
@@ -8,6 +9,8 @@
     @param y the vertical (y) position starting point
 */
 void PlayableCharacter::init(SDL_Renderer* renderer,int x, int y){
+    orignal_height=y;
+    notOnPlatform = true;
     this->addComponent<TransformComponent>(x,y,100,100);
     this->addComponent<SpriteRenderer>(renderer,"assets/characters/main_character_right.png",32,32,3,100);
     this->addComponent<ColliderComponent>("Player");
@@ -30,22 +33,24 @@ void PlayableCharacter::update(){
     int x = getComponent<TransformComponent>().x(); // Get relative x position
     int y = getComponent<TransformComponent>().position.y; // Get Absolute y position
     if(this->isJumpingUp && (y>MaxHeight)){
-        getComponent<TransformComponent>().velocity.y=-3;
+        getComponent<TransformComponent>().velocity.y=-5;
     }
     else if(this->isJumpingDown && (y!=currentHeight)){
-        getComponent<TransformComponent>().velocity.y=3;
+        getComponent<TransformComponent>().velocity.y=5;
         isJumpingUp=false;
     }
     else{
         isJumpingDown=false;getComponent<TransformComponent>().velocity.y=0;
     }
+    cout << y << endl;
+    cout << orignal_height << endl;
     // Moves player left or right based on what key is being pressed
     if(isMovingRight && ( x + playerWidth) <= WindowProperties::windowValue.width){
-        getComponent<TransformComponent>().velocity.x=5;
+        getComponent<TransformComponent>().velocity.x=10;
         getComponent<SpriteRenderer>().setTexture("assets/characters/main_character_right.png");
     }
     else if(isMovingLeft&&x>=0 ){
-        getComponent<TransformComponent>().velocity.x=-5;
+        getComponent<TransformComponent>().velocity.x=-10;
         getComponent<SpriteRenderer>().setTexture("assets/characters/main_character_left.png");
     }
     else{
@@ -85,10 +90,17 @@ void PlayableCharacter::keyEventListener(SDL_Event event){
     }
 }
 /**
-    Detects Player collision with certain objects
+    Detects Player collision with certain objectsad
 */
 void PlayableCharacter::onCollisionDetection(ColliderComponent collider){
-    if(getComponent<ColliderComponent>().collision(collider)){
-        cout << "I've BEEN HIT" << endl;
+    std::string name = collider.tag;
+    if(getComponent<ColliderComponent>().collision(collider)&& name.compare("Platform")==0){
+        int platformHeight = collider.collider.y;
+        int playerHeight = getComponent<TransformComponent>().position.y + getComponent<TransformComponent>().getHeight();
+        if(playerHeight<=platformHeight){
+            MaxHeight = platformHeight-150-getComponent<TransformComponent>().getHeight();
+            currentHeight = platformHeight-getComponent<TransformComponent>().getHeight();
+            notOnPlatform == false;
+        }
     }
 }

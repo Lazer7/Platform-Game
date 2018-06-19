@@ -16,10 +16,6 @@ void AssetHandler::init(SDL_Renderer* renderer){
     music.init("audio/Blessing.mp3");
     background.init(renderer,"assets/backgrounds/gamebackground.jpg");
     newplayer.init(renderer,800,475);
-    // COLLISION REFERENCE
-//    wall.addComponent<TransformComponent>(500,350,75,75);
-//    wall.addComponent<SpriteRenderer>(renderer,"assets/up.bmp",900,900);
-//    wall.addComponent<ColliderComponent>("Wall");
     music.play();
 }
 /**
@@ -27,32 +23,26 @@ void AssetHandler::init(SDL_Renderer* renderer){
 */
 void AssetHandler::update(){
     addPlatform();
-    newplayer.update();
     list<Platform>::iterator it;
     for(it= platforms.begin(); it!= platforms.end(); ++it){
         it->update();
     }
-    // COLLISION REFERENCE
-//  wall.update();
-//  newplayer.onCollisionDetection(wall.getComponent<ColliderComponent>());
+    newplayer.update();
+    for(it= platforms.begin(); it!= platforms.end(); ++it){
+        newplayer.onCollisionDetection(it->getComponent<ColliderComponent>());
+    }
 }
 /**
     Render function to draw the game object to the screen
 */
-//int counter = 0;
+
 void AssetHandler::render(){
     background.render();
-    newplayer.render();
     list<Platform>::iterator it;
     for(it= platforms.begin(); it!= platforms.end(); ++it){
         it->render();
     }
-    // COLLISION REFERENCE
-//    wall.render();
-//    counter++;
-//    if(counter == 100){
-//        newplayer.~PlayableCharacter();
-//    }
+    newplayer.render();
 }
 /**
     Handles Key Events for game objects
@@ -65,7 +55,7 @@ void AssetHandler::keyEventHandler(SDL_Event event){
     Create Platform Assets every second
 */
 void AssetHandler::addPlatform(){
-    if((SDL_GetTicks() - frameStart)>1000){
+    if((SDL_GetTicks() - frameStart)>3000){
         platforms.push_back(PlatformFactory::Create(renderer,"Grass"));
         frameStart=SDL_GetTicks();
     }
