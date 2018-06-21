@@ -2,6 +2,8 @@
 
 // Static window properties
 const std::string WindowProperties::title="Platform Game";
+const int WindowProperties::WindowHeight = 600;
+const int WindowProperties::WindowWidth = 1000;
 WindowValue WindowProperties::windowValue;
 SDL_Window* WindowProperties::window = NULL;
 SDL_Surface* WindowProperties::screen_surface = NULL;
@@ -92,7 +94,6 @@ void WindowProperties::resizeWindowEvent() {
                                                      hScale,
                                                      WindowProperties::windowValue.FPS,
                                                      WindowProperties::windowValue.fullscreen);
-
             }
         break;
         }

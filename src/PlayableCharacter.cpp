@@ -31,7 +31,7 @@ void PlayableCharacter::update(){
     // Checks what is the current jumping status of player
     int playerWidth = getComponent<TransformComponent>().getWidth();
     int x = getComponent<TransformComponent>().x(); // Get relative x position
-    int y = getComponent<TransformComponent>().position.y; // Get Absolute y position
+    int y = getComponent<TransformComponent>().y(); // Get Absolute y position
     if(this->isJumpingUp && (y>MaxHeight)){
         getComponent<TransformComponent>().velocity.y=-5;
     }
@@ -41,6 +41,8 @@ void PlayableCharacter::update(){
     }
     else{
         isJumpingDown=false;getComponent<TransformComponent>().velocity.y=0;
+        MaxHeight = y-150;
+        currentHeight = y;
     }
     // Moves player left or right based on what key is being pressed
     if(isMovingRight && ( x + playerWidth) <= WindowProperties::windowValue.width){
@@ -99,6 +101,7 @@ void PlayableCharacter::onCollisionDetection(ColliderComponent collider){
             MaxHeight = platformHeight-150-getComponent<TransformComponent>().getHeight();
             currentHeight = platformHeight-getComponent<TransformComponent>().getHeight();
             notOnPlatform == false;
+                    std::cout << "I'VE BEEN HIT" << std::endl;
         }
     }
 }

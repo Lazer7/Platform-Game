@@ -27,8 +27,8 @@ public:
     }
     TransformComponent(float x, float y)
     {
-        position.x = x + WindowProperties::getWidthDisposition();
-        position.y = y + WindowProperties::getHeightDisposition();
+        position.x = x;
+        position.y = y;
         height = 32;
         width = 32;
     }
@@ -39,9 +39,7 @@ public:
         this->height = height;
         this->width = width;
     }
-    int getWidth(){
-        return width*WindowProperties::windowValue.Wscale;
-    }
+    int getWidth(){return width*WindowProperties::windowValue.Wscale;}
     int getHeight(){
         return height*WindowProperties::windowValue.Hscale;
     }

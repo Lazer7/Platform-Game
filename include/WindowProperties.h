@@ -17,6 +17,8 @@ class WindowValue{
 class WindowProperties
 {
     public:
+        static const int WindowHeight;
+        static const int WindowWidth;
         static const std::string title;
         static SDL_Window* window;
         static SDL_Surface* screen_surface;
