@@ -2,7 +2,7 @@
 1529032359 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
 
-1529035046 d:\code\c++ projects\platform-game\include\sdlwindow.h
+1529617994 d:\code\c++ projects\platform-game\include\sdlwindow.h
 	<iostream>
 	<stdio.h>
 	<string>
@@ -379,7 +379,7 @@
 1528355493 d:\code\c++ projects\platform-game\include\vector2d.h
 	<iostream>
 
-1529447839 d:\code\c++ projects\platform-game\components\spriterenderer.h
+1529617581 d:\code\c++ projects\platform-game\components\spriterenderer.h
 	"Components.h"
 	"SDL_image.h"
 	"SDL.h"
@@ -389,7 +389,7 @@
 	<SDL.h>
 	"ComponentManager.h"
 
-1529045996 d:\code\c++ projects\platform-game\include\playablecharacter.h
+1529617664 d:\code\c++ projects\platform-game\include\playablecharacter.h
 	"GameObject.h"
 	"../components/Components.h"
 	"WindowProperties.h"
@@ -414,7 +414,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1528959463 d:\code\c++ projects\platform-game\include\map.h
+1529617665 d:\code\c++ projects\platform-game\include\map.h
 	"SDL.h"
 	"SDL_image.h"
 	"WindowProperties.h"
@@ -422,46 +422,47 @@
 1528937134 source:d:\code\c++ projects\platform-game\src\characterhandler.cpp
 	"CharacterHandler.h"
 
-1529048739 source:d:\code\c++ projects\platform-game\src\map.cpp
+1529617779 source:d:\code\c++ projects\platform-game\src\map.cpp
 	"Map.h"
 	<iostream>
 
 1529048877 source:d:\code\c++ projects\platform-game\src\media.cpp
 	"Media.h"
 
-1529450225 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
+1529617839 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
 	"PlayableCharacter.h"
 
 1529044983 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
 	"Vector2D.h"
 
-1529046210 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1529617440 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
 
-1529049053 source:d:\code\c++ projects\platform-game\src\windowproperties.cpp
+1529617299 source:d:\code\c++ projects\platform-game\src\windowproperties.cpp
 	"WindowProperties.h"
 
-1528962977 d:\code\c++ projects\platform-game\include\windowproperties.h
+1529617310 d:\code\c++ projects\platform-game\include\windowproperties.h
 	<iostream>
 	<fstream>
 	<string>
 	<windows.h>
 	<SDL.h>
 
-1529218266 d:\code\c++ projects\platform-game\include\assethandler.h
+1529617394 d:\code\c++ projects\platform-game\include\assethandler.h
 	<list>
 	<../components/Components.h>
 	"PlayableCharacter.h"
 	"Map.h"
 	"Media.h"
+	"WindowProperties.h"
 
-1529448396 source:d:\code\c++ projects\platform-game\src\assethandler.cpp
+1529617703 source:d:\code\c++ projects\platform-game\src\assethandler.cpp
 	"AssetHandler.h"
 	"Platforms/platformTypes.h"
 	"Platforms/platform.h"
 	"Platforms/platformFactory.h"
 
-1529448053 d:\code\c++ projects\platform-game\include\platforms\platformfactory.h
+1529617885 d:\code\c++ projects\platform-game\include\platforms\platformfactory.h
 	<string>
 	<iostream>
 	<ctime>
@@ -470,7 +471,7 @@
 	"SDL.h"
 	"WindowProperties.h"
 
-1529447828 d:\code\c++ projects\platform-game\include\platforms\platform.h
+1529617736 d:\code\c++ projects\platform-game\include\platforms\platform.h
 	<iostream>
 	<string>
 	"../components/Components.h"

@@ -12,8 +12,7 @@ Map::~Map(){
 /**
     Initalizes the map with image
 */
-void Map:: init(SDL_Renderer* renderer,const char* spriteMap){
-    this->renderer = renderer;
+void Map:: init(const char* spriteMap){
     setTexture(spriteMap);
 }
 /**
@@ -21,7 +20,7 @@ void Map:: init(SDL_Renderer* renderer,const char* spriteMap){
 */
 void Map::setTexture(const char* spriteMap){
     SDL_Surface* tempSurface = IMG_Load(spriteMap);
-    spriteSheetTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+    spriteSheetTexture = SDL_CreateTextureFromSurface(WindowProperties::renderer, tempSurface);
     SDL_FreeSurface(tempSurface);
 }
 /**
@@ -45,7 +44,7 @@ void Map::render( int x, int y, SDL_Rect* clip, double angle, SDL_Point* center,
 		renderQuad.h = clip->h;
 	}
 	//Render to screen
-	SDL_RenderCopyEx( renderer, spriteSheetTexture, clip, &renderQuad, angle, center, flip );
+	SDL_RenderCopyEx( WindowProperties::renderer, spriteSheetTexture, clip, &renderQuad, angle, center, flip );
 
 }
 /**

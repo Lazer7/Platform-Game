@@ -12,23 +12,27 @@ SDLWindow::SDLWindow() {
         // Set flag to notify the system is running
         this->isRunning=true;
         // Creates the window
-        this->window = SDL_CreateWindow( WindowProperties::title.c_str(),
+        WindowProperties::window = SDL_CreateWindow( WindowProperties::title.c_str(),
                                         SDL_WINDOWPOS_UNDEFINED,
                                         SDL_WINDOWPOS_UNDEFINED,
                                         WindowProperties::windowValue.width,
                                         WindowProperties::windowValue.height,
                                         SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE );
-        this->renderer = SDL_CreateRenderer(this->window, -1 ,0);
-        if( this->window != NULL && this->renderer != NULL){
+        SDL_Surface *surface;     // Declare an SDL_Surface to be filled in with pixel data from an image file
+        surface = IMG_Load("assets/logo.png");
+        SDL_SetWindowIcon(WindowProperties::window, surface);
+        SDL_FreeSurface(surface);
+        WindowProperties::renderer = SDL_CreateRenderer(WindowProperties::window, -1 ,0);
+        if( WindowProperties::window != NULL && WindowProperties::renderer != NULL){
             // Set background to white
-            SDL_SetRenderDrawColor(this->renderer,255,255,255,255);
+            SDL_SetRenderDrawColor(WindowProperties::renderer,255,255,255,255);
         }
         else{
             // Error has occurred stop systems
             printf( "Something could not be created! SDL_Error: %s\n", SDL_GetError() );
             this->isRunning = false;
         }
-        assetHandler.init(this->renderer);
+        assetHandler.init();
     }
     else{
         printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
@@ -37,10 +41,10 @@ SDLWindow::SDLWindow() {
 }
 SDLWindow::~SDLWindow() {
     //Destroy window
-    SDL_DestroyRenderer( this->renderer );
-    SDL_DestroyWindow( this->window );
-    this->window = NULL;
-    this->renderer = NULL;
+    SDL_DestroyRenderer( WindowProperties::renderer );
+    SDL_DestroyWindow( WindowProperties::window );
+    WindowProperties::window = NULL;
+    WindowProperties::renderer = NULL;
     //Quit SDL subsystems
     IMG_Quit();
     SDL_Quit();
@@ -50,14 +54,14 @@ SDLWindow::~SDLWindow() {
     Handles any input or outputs that occurs in the window
 */
 void SDLWindow:: handleEvents() {
-    SDL_PollEvent(&event);
-    switch(event.type){
+    SDL_PollEvent(&WindowProperties::event);
+    switch(WindowProperties::event.type){
         case SDL_QUIT:
             isRunning=false;
             break;
         default:
-            WindowProperties::resizeWindowEvent(event,this->window);
-            assetHandler.keyEventHandler(event);
+            WindowProperties::resizeWindowEvent();
+            assetHandler.keyEventHandler();
             break;
     }
 }
@@ -65,9 +69,9 @@ void SDLWindow:: handleEvents() {
     Renders game assets to the screen
 */
 void SDLWindow:: render() {
-    SDL_RenderClear(this->renderer);
+    SDL_RenderClear(WindowProperties::renderer);
     assetHandler.render();
-    SDL_RenderPresent(this->renderer);
+    SDL_RenderPresent(WindowProperties::renderer);
 }
 /**
     Updates the game assets

@@ -3,7 +3,10 @@
 // Static window properties
 const std::string WindowProperties::title="Platform Game";
 WindowValue WindowProperties::windowValue;
-
+SDL_Window* WindowProperties::window = NULL;
+SDL_Surface* WindowProperties::screen_surface = NULL;
+SDL_Renderer* WindowProperties::renderer = NULL;
+SDL_Event WindowProperties::event;
 /**
     Initialize Window settings from the WindowScreen.dat file
 */
@@ -72,7 +75,7 @@ void WindowProperties::setDefaultWindowProperties() {
 /**
     Change Window setting based on window event actions
 */
-void WindowProperties::resizeWindowEvent(SDL_Event event,SDL_Window* window) {
+void WindowProperties::resizeWindowEvent() {
     if(event.type == SDL_WINDOWEVENT){
         switch(event.window.event){
         case SDL_WINDOWEVENT_SIZE_CHANGED:

@@ -48,12 +48,15 @@
 		<Unit filename="assets/backgrounds/gamebackground2.png" />
 		<Unit filename="assets/characters/main_character_left.png" />
 		<Unit filename="assets/characters/main_character_right.png" />
+		<Unit filename="assets/images.png" />
+		<Unit filename="assets/logo.jpg" />
 		<Unit filename="assets/platforms/Grass/Platform1.png" />
 		<Unit filename="assets/platforms/Grass/Platform2.png" />
 		<Unit filename="assets/platforms/Grass/Platform3.png" />
 		<Unit filename="assets/platforms/Grass/platform4.png" />
 		<Unit filename="assets/platforms/Grass/platform5.png" />
 		<Unit filename="audio/Blessing.mp3" />
+		<Unit filename="components/ColliderComponent.h" />
 		<Unit filename="components/ComponentManager.h" />
 		<Unit filename="components/Components.h" />
 		<Unit filename="components/SpriteRenderer.h" />
