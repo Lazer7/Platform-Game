@@ -17,13 +17,19 @@ class WindowValue{
 class WindowProperties
 {
     public:
+        static const std::string title;
+        static SDL_Window* window;
+        static SDL_Surface* screen_surface;
+        static WindowValue windowValue;
+        static SDL_Renderer* renderer;
+        static SDL_Event event;
+
+
         static bool init();
         static void setWindowProperties(WindowValue);
         static void setWindowProperties(int,int,float,float,int,bool);
         static void setDefaultWindowProperties();
-        static void resizeWindowEvent(SDL_Event event,SDL_Window*);
-        static const std::string title;
-        static WindowValue windowValue;
+        static void resizeWindowEvent();
         static float getWidthDisposition();
         static float getHeightDisposition();
 

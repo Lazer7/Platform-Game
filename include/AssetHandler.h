@@ -5,21 +5,21 @@
 #include "PlayableCharacter.h"
 #include "Map.h"
 #include "Media.h"
+#include "WindowProperties.h"
 
 
 class AssetHandler
 {
     public:
         AssetHandler(){};
-        void init(SDL_Renderer* renderer);
+        void init();
         void update();
         void render();
-        void keyEventHandler(SDL_Event);
+        void keyEventHandler();
         PlayableCharacter newplayer;
         GameObject wall;
     private:
         void addPlatform();
-        SDL_Renderer* renderer;
         Map background;
         Media music;
         int frameStart;

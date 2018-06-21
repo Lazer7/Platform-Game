@@ -21,14 +21,8 @@ class SDLWindow
         bool running(){return isRunning;}
         void loadMedia(std:: string);
         void capFrameRate(int);
-        SDL_Renderer* renderer;
-        SDL_Event event;
-
-    protected:
 
     private:
-        SDL_Window* window = NULL;
-        SDL_Surface* screen_surface = NULL;
         AssetHandler assetHandler;
         bool isRunning;
 };

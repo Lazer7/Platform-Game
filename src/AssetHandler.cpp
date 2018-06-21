@@ -5,17 +5,15 @@
 /**
     Initializes all Assets in the Game
     TODO:: Refactor to place all characters in a vector
-    @param renderer the rendering engine to place all game objects
 */
 std::list<Platform> platforms;
 
-void AssetHandler::init(SDL_Renderer* renderer){
-    this->renderer = renderer;
+void AssetHandler::init(){
     this->frameStart = SDL_GetTicks();
 
     music.init("audio/Blessing.mp3");
-    background.init(renderer,"assets/backgrounds/gamebackground.jpg");
-    newplayer.init(renderer,800,475);
+    background.init("assets/backgrounds/gamebackground.jpg");
+    newplayer.init(800,475);
     music.play();
 }
 /**
@@ -47,16 +45,16 @@ void AssetHandler::render(){
 /**
     Handles Key Events for game objects
 */
-void AssetHandler::keyEventHandler(SDL_Event event){
+void AssetHandler::keyEventHandler(){
     background.update();
-    newplayer.keyEventListener(event);
+    newplayer.keyEventListener();
 }
 /**
     Create Platform Assets every second
 */
 void AssetHandler::addPlatform(){
     if((SDL_GetTicks() - frameStart)>3000){
-        platforms.push_back(PlatformFactory::Create(renderer,"Grass"));
+        platforms.push_back(PlatformFactory::Create("Grass"));
         frameStart=SDL_GetTicks();
     }
 }

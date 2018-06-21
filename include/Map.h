@@ -7,7 +7,7 @@ class Map
 {
     public:
         Map()=default;
-        void init(SDL_Renderer*,const char* spriteMap);
+        void init(const char* spriteMap);
         void setTexture(const char* spriteMap);
         void render();
         void render( int x, int y, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE );
@@ -20,7 +20,6 @@ class Map
         bool isScroll=false;
         int scrollOffset=0;
         SDL_Texture* spriteSheetTexture;
-        SDL_Renderer* renderer;
 };
 
 #endif // MAP_H

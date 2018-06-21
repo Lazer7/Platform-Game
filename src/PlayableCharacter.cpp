@@ -8,11 +8,11 @@ bool notOnPlatform;
     @param x the horizontal (x) position starting point
     @param y the vertical (y) position starting point
 */
-void PlayableCharacter::init(SDL_Renderer* renderer,int x, int y){
+void PlayableCharacter::init(int x, int y){
     orignal_height=y;
     notOnPlatform = true;
     this->addComponent<TransformComponent>(x,y,100,100);
-    this->addComponent<SpriteRenderer>(renderer,"assets/characters/main_character_right.png",32,32,3,100);
+    this->addComponent<SpriteRenderer>("assets/characters/main_character_right.png",32,32,3,100);
     this->addComponent<ColliderComponent>("Player");
     MaxHeight = y-150;
     currentHeight = y;
@@ -42,8 +42,6 @@ void PlayableCharacter::update(){
     else{
         isJumpingDown=false;getComponent<TransformComponent>().velocity.y=0;
     }
-    cout << y << endl;
-    cout << orignal_height << endl;
     // Moves player left or right based on what key is being pressed
     if(isMovingRight && ( x + playerWidth) <= WindowProperties::windowValue.width){
         getComponent<TransformComponent>().velocity.x=10;
@@ -60,10 +58,10 @@ void PlayableCharacter::update(){
 /**
     Listens to keyboard events and updates the player position
 */
-void PlayableCharacter::keyEventListener(SDL_Event event){
+void PlayableCharacter::keyEventListener(){
     // Checks for Key Presses
-    if(event.type == SDL_KEYDOWN){
-        switch(event.key.keysym.sym){
+    if(WindowProperties::event.type == SDL_KEYDOWN){
+        switch(WindowProperties::event.key.keysym.sym){
             case SDLK_a:
                 isMovingLeft=true;
             break;
@@ -78,8 +76,8 @@ void PlayableCharacter::keyEventListener(SDL_Event event){
         }
     }
     // Checks for Key Releases
-    if(event.type == SDL_KEYUP){
-        switch(event.key.keysym.sym){
+    if(WindowProperties::event.type == SDL_KEYUP){
+        switch(WindowProperties::event.key.keysym.sym){
             case SDLK_a:
                 isMovingLeft=false;
             break;

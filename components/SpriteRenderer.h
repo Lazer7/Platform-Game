@@ -15,7 +15,6 @@ class SpriteRenderer : public Component
         TransformComponent* transformer;
         SDL_Rect srcRect, destRect;
         SDL_Texture* spriteSheetTexture;
-        SDL_Renderer* renderer;
         // Animation variables
         bool animated = false;
         int frames = 0;
@@ -23,19 +22,16 @@ class SpriteRenderer : public Component
 
     public:
         // Overloaded Constructors
-        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet){
-            this->renderer = renderer;
+        SpriteRenderer(const char* spriteSheet){
             setTexture(spriteSheet);
         };
 
-        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int srcWidth, int srcHeight){
-            this->renderer = renderer;
+        SpriteRenderer(const char* spriteSheet,int srcWidth, int srcHeight){
             setTexture(spriteSheet);
             this->srcWidth=srcWidth;
             this->srcHeight=srcHeight;
         };
-        SpriteRenderer(SDL_Renderer* renderer,const char* spriteSheet,int srcWidth, int srcHeight, int frames, int speed){
-            this->renderer = renderer;
+        SpriteRenderer(const char* spriteSheet,int srcWidth, int srcHeight, int frames, int speed){
             setTexture(spriteSheet);
             this->srcWidth=srcWidth;
             this->srcHeight=srcHeight;
@@ -49,7 +45,7 @@ class SpriteRenderer : public Component
         }
         void setTexture(const char* spriteSheet){
             SDL_Surface* tempSurface = IMG_Load(spriteSheet);
-            spriteSheetTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+            spriteSheetTexture = SDL_CreateTextureFromSurface(WindowProperties::renderer, tempSurface);
             srcWidth = tempSurface->w;
             srcHeight = tempSurface->h;
             SDL_FreeSurface(tempSurface);
@@ -79,7 +75,7 @@ class SpriteRenderer : public Component
         }
         void draw() override
         {
-            SDL_RenderCopy(renderer,spriteSheetTexture,&srcRect,&destRect);
+            SDL_RenderCopy(WindowProperties::renderer,spriteSheetTexture,&srcRect,&destRect);
         }
 
 };
