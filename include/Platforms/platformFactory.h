@@ -20,6 +20,7 @@ class PlatformFactory{
             PlatformTypes::setPlatformType(type);
             Platform platform;
             platform.init(PlatformTypes::platforms[rand()%5].c_str(),WindowProperties::WindowWidth,jumpHeights[rand()%4]);
+            //platform.init(PlatformTypes::platforms[rand()%5].c_str(),WindowProperties::WindowWidth,450);
             //cout << WindowProperties::windowValue.width << endl;
             //cout << platform.getComponent<TransformComponent>().position << endl;
             return platform;

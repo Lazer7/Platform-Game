@@ -370,7 +370,7 @@
 	<bitset>
 	<array>
 
-1530048712 d:\code\c++ projects\platform-game\components\transformcomponent.h
+1530049720 d:\code\c++ projects\platform-game\components\transformcomponent.h
 	"../include/Vector2D.h"
 	<iostream>
 	"../include/WindowProperties.h"
@@ -384,7 +384,7 @@
 	"SDL_image.h"
 	"SDL.h"
 
-1528528772 d:\code\c++ projects\platform-game\components\collidercomponent.h
+1530049498 d:\code\c++ projects\platform-game\components\collidercomponent.h
 	<string>
 	<SDL.h>
 	"ComponentManager.h"
@@ -429,7 +429,7 @@
 1529048877 source:d:\code\c++ projects\platform-game\src\media.cpp
 	"Media.h"
 
-1530048614 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
+1530053085 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
 	"PlayableCharacter.h"
 
 1529044983 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
@@ -462,7 +462,7 @@
 	"Platforms/platform.h"
 	"Platforms/platformFactory.h"
 
-1529622172 d:\code\c++ projects\platform-game\include\platforms\platformfactory.h
+1530050217 d:\code\c++ projects\platform-game\include\platforms\platformfactory.h
 	<string>
 	<iostream>
 	<ctime>
@@ -471,7 +471,7 @@
 	"SDL.h"
 	"WindowProperties.h"
 
-1529625079 d:\code\c++ projects\platform-game\include\platforms\platform.h
+1530049873 d:\code\c++ projects\platform-game\include\platforms\platform.h
 	<iostream>
 	<string>
 	"../components/Components.h"

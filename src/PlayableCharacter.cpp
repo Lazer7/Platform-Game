@@ -42,7 +42,7 @@ void PlayableCharacter::update(){
     else{
         isJumpingDown=false;
         getComponent<TransformComponent>().velocity.y=0;
-        MaxHeight = y-150;
+        MaxHeight = y-(150*WindowProperties::windowValue.Hscale);
         currentHeight = y;
     }
     // Moves player left or right based on what key is being pressed
@@ -97,12 +97,9 @@ void PlayableCharacter::onCollisionDetection(ColliderComponent collider){
     std::string name = collider.tag;
     if(getComponent<ColliderComponent>().collision(collider)&& name.compare("Platform")==0){
         int platformHeight = collider.collider.y;
-        int playerHeight = getComponent<TransformComponent>().position.y + getComponent<TransformComponent>().getHeight();
-        cout << playerHeight << endl;
-        cout << platformHeight << endl;
-        cout << !isJumpingUp << endl;
+        int playerHeight = getComponent<TransformComponent>().y()+ getComponent<TransformComponent>().getHeight();
         if(playerHeight<=platformHeight && !isJumpingUp){
-            MaxHeight = platformHeight-150-getComponent<TransformComponent>().getHeight();
+            MaxHeight = platformHeight-(150*WindowProperties::windowValue.Hscale)-getComponent<TransformComponent>().getHeight();
             currentHeight = platformHeight-getComponent<TransformComponent>().getHeight();
             isJumpingDown=false;
             getComponent<TransformComponent>().velocity.y=0;

@@ -18,10 +18,10 @@ class ColliderComponent : public Component{
             transformer = &entity->getComponent<TransformComponent>();
         }
         void update() override{
-            collider.x = (int) transformer->position.x;
-            collider.y = (int) transformer->position.y;
-            collider.w = transformer->width;
-            collider.h = transformer->height;
+            collider.x = (int) transformer->x();
+            collider.y = (int) transformer->y();
+            collider.w = transformer->getWidth();
+            collider.h = transformer->getHeight();
         }
         bool collision(ColliderComponent otherObject){
             if(

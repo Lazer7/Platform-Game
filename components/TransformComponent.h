@@ -43,7 +43,9 @@ public:
     int getHeight(){
         return ceil(height*WindowProperties::windowValue.Hscale);
     }
-    int x(){return ceil((float)position.x * WindowProperties::getWidthDisposition());}
+    int x(){
+        return ceil((float)position.x * WindowProperties::getWidthDisposition());
+    }
     int y(){return ceil((float)position.y * WindowProperties::getHeightDisposition());}
     void init() override
     {
