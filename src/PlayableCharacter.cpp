@@ -14,8 +14,8 @@ void PlayableCharacter::init(int x, int y){
     this->addComponent<TransformComponent>(x,y,100,100);
     this->addComponent<SpriteRenderer>("assets/characters/main_character_right.png",32,32,3,100);
     this->addComponent<ColliderComponent>("Player");
-    MaxHeight = y-150;
-    currentHeight = y;
+    MaxHeight = getComponent<TransformComponent>().y()-150;
+    currentHeight = getComponent<TransformComponent>().y();
 }
 /**
     Draws the game object to the screen
@@ -40,7 +40,8 @@ void PlayableCharacter::update(){
         isJumpingUp=false;
     }
     else{
-        isJumpingDown=false;getComponent<TransformComponent>().velocity.y=0;
+        isJumpingDown=false;
+        getComponent<TransformComponent>().velocity.y=0;
         MaxHeight = y-150;
         currentHeight = y;
     }
@@ -97,11 +98,14 @@ void PlayableCharacter::onCollisionDetection(ColliderComponent collider){
     if(getComponent<ColliderComponent>().collision(collider)&& name.compare("Platform")==0){
         int platformHeight = collider.collider.y;
         int playerHeight = getComponent<TransformComponent>().position.y + getComponent<TransformComponent>().getHeight();
-        if(playerHeight<=platformHeight){
+        cout << playerHeight << endl;
+        cout << platformHeight << endl;
+        cout << !isJumpingUp << endl;
+        if(playerHeight<=platformHeight && !isJumpingUp){
             MaxHeight = platformHeight-150-getComponent<TransformComponent>().getHeight();
             currentHeight = platformHeight-getComponent<TransformComponent>().getHeight();
-            notOnPlatform == false;
-                    std::cout << "I'VE BEEN HIT" << std::endl;
+            isJumpingDown=false;
+            getComponent<TransformComponent>().velocity.y=0;
         }
     }
 }

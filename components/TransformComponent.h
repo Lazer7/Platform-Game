@@ -39,9 +39,9 @@ public:
         this->height = height;
         this->width = width;
     }
-    int getWidth(){return width*WindowProperties::windowValue.Wscale;}
+    int getWidth(){return ceil(width*WindowProperties::windowValue.Wscale);}
     int getHeight(){
-        return height*WindowProperties::windowValue.Hscale;
+        return ceil(height*WindowProperties::windowValue.Hscale);
     }
     int x(){return ceil((float)position.x * WindowProperties::getWidthDisposition());}
     int y(){return ceil((float)position.y * WindowProperties::getHeightDisposition());}

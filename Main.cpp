@@ -10,7 +10,6 @@ int main( int argc, char* args[] )
         game.update();
         game.capFrameRate(frameStart);
     }
-
     game.~SDLWindow();
 	return 0;
 }
