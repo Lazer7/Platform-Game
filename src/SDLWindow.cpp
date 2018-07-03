@@ -13,11 +13,11 @@ SDLWindow::SDLWindow() {
         this->isRunning=true;
         // Creates the window
         WindowProperties::window = SDL_CreateWindow( WindowProperties::title.c_str(),
-                                        SDL_WINDOWPOS_UNDEFINED,
-                                        SDL_WINDOWPOS_UNDEFINED,
-                                        WindowProperties::windowValue.width,
-                                        WindowProperties::windowValue.height,
-                                        SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE );
+                                                     SDL_WINDOWPOS_UNDEFINED,
+                                                     SDL_WINDOWPOS_UNDEFINED,
+                                                     WindowProperties::windowValue.width,
+                                                     WindowProperties::windowValue.height,
+                                                     SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE );
         SDL_Surface *surface;     // Declare an SDL_Surface to be filled in with pixel data from an image file
         surface = IMG_Load("assets/logo.png");
         SDL_SetWindowIcon(WindowProperties::window, surface);

@@ -9,11 +9,11 @@ bool notOnPlatform;
     @param y the vertical (y) position starting point
 */
 void PlayableCharacter::init(int x, int y){
-    orignal_height=y;
     notOnPlatform = true;
     this->addComponent<TransformComponent>(x,y,100,100);
     this->addComponent<SpriteRenderer>("assets/characters/main_character_right.png",32,32,3,100);
     this->addComponent<ColliderComponent>("Player");
+    orignal_height=y;
     MaxHeight = getComponent<TransformComponent>().y()-150;
     currentHeight = getComponent<TransformComponent>().y();
 }
@@ -32,11 +32,14 @@ void PlayableCharacter::update(){
     int playerWidth = getComponent<TransformComponent>().getWidth();
     int x = getComponent<TransformComponent>().x(); // Get relative x position
     int y = getComponent<TransformComponent>().y(); // Get Absolute y position
-    if(this->isJumpingUp && (y>MaxHeight)){
-        getComponent<TransformComponent>().velocity.y=-5;
+    if(notOnPlatform){
+        currentHeight = (int) orignal_height* WindowProperties::windowValue.Hscale;
     }
-    else if(this->isJumpingDown && (y!=currentHeight)){
-        getComponent<TransformComponent>().velocity.y=5;
+    if(this->isJumpingUp && (y>MaxHeight)){
+        getComponent<TransformComponent>().velocity.y=-10;
+    }
+    else if((y<=currentHeight)){
+        getComponent<TransformComponent>().velocity.y=10;
         isJumpingUp=false;
     }
     else{
@@ -97,12 +100,16 @@ void PlayableCharacter::onCollisionDetection(ColliderComponent collider){
     std::string name = collider.tag;
     if(getComponent<ColliderComponent>().collision(collider)&& name.compare("Platform")==0){
         int platformHeight = collider.collider.y;
-        int playerHeight = getComponent<TransformComponent>().y()+ getComponent<TransformComponent>().getHeight();
+        int playerHeight = getComponent<TransformComponent>().y()+ getComponent<TransformComponent>().getHeight()- (10*WindowProperties::windowValue.Hscale);
         if(playerHeight<=platformHeight && !isJumpingUp){
             MaxHeight = platformHeight-(150*WindowProperties::windowValue.Hscale)-getComponent<TransformComponent>().getHeight();
             currentHeight = platformHeight-getComponent<TransformComponent>().getHeight();
             isJumpingDown=false;
             getComponent<TransformComponent>().velocity.y=0;
+            notOnPlatform = false;
         }
+    }
+    else{
+        notOnPlatform = true;
     }
 }

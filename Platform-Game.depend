@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1529625120 source:d:\code\c++ projects\platform-game\main.cpp
+1530224623 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
 
 1529618278 d:\code\c++ projects\platform-game\include\sdlwindow.h
@@ -362,7 +362,7 @@
 	"SpriteRenderer.h"
 	"ColliderComponent.h"
 
-1529218929 d:\code\c++ projects\platform-game\components\componentmanager.h
+1530652818 d:\code\c++ projects\platform-game\components\componentmanager.h
 	<iostream>
 	<vector>
 	<memory>
@@ -429,13 +429,13 @@
 1529048877 source:d:\code\c++ projects\platform-game\src\media.cpp
 	"Media.h"
 
-1530053085 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
+1530657071 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
 	"PlayableCharacter.h"
 
 1529044983 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
 	"Vector2D.h"
 
-1529618278 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1530655983 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
 
 1529620786 source:d:\code\c++ projects\platform-game\src\windowproperties.cpp

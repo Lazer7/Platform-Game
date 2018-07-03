@@ -111,7 +111,6 @@ class Manager{
             [](const std::unique_ptr<Entity>&mEntity){
                 return true;
             }), std::end(entities));
-            std:: cout << "Erased Stuff " << std::endl;
         }
         void refresh(){
             entities.erase(std::remove_if(std::begin(entities),std::end(entities),
