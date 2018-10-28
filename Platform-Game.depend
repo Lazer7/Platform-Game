@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1530224623 source:d:\code\c++ projects\platform-game\main.cpp
+1537226009 source:d:\code\c++ projects\platform-game\main.cpp
 	"SDLWindow.h"
 
-1529618278 d:\code\c++ projects\platform-game\include\sdlwindow.h
+1537226009 d:\code\c++ projects\platform-game\include\sdlwindow.h
 	<iostream>
 	<stdio.h>
 	<string>
@@ -379,10 +379,11 @@
 1528355493 d:\code\c++ projects\platform-game\include\vector2d.h
 	<iostream>
 
-1529621346 d:\code\c++ projects\platform-game\components\spriterenderer.h
+1537840167 d:\code\c++ projects\platform-game\components\spriterenderer.h
 	"Components.h"
 	"SDL_image.h"
 	"SDL.h"
+	<iostream>
 
 1530049498 d:\code\c++ projects\platform-game\components\collidercomponent.h
 	<string>
@@ -426,16 +427,16 @@
 	"Map.h"
 	<iostream>
 
-1529048877 source:d:\code\c++ projects\platform-game\src\media.cpp
+1534805626 source:d:\code\c++ projects\platform-game\src\media.cpp
 	"Media.h"
 
-1530657071 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
+1537229099 source:d:\code\c++ projects\platform-game\src\playablecharacter.cpp
 	"PlayableCharacter.h"
 
 1529044983 source:d:\code\c++ projects\platform-game\src\vector2d.cpp
 	"Vector2D.h"
 
-1530655983 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
+1537226009 source:d:\code\c++ projects\platform-game\src\sdlwindow.cpp
 	"SDLWindow.h"
 
 1529620786 source:d:\code\c++ projects\platform-game\src\windowproperties.cpp
@@ -456,7 +457,7 @@
 	"Media.h"
 	"WindowProperties.h"
 
-1529618278 source:d:\code\c++ projects\platform-game\src\assethandler.cpp
+1536299165 source:d:\code\c++ projects\platform-game\src\assethandler.cpp
 	"AssetHandler.h"
 	"Platforms/platformTypes.h"
 	"Platforms/platform.h"

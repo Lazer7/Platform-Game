@@ -4,7 +4,8 @@
 #include "Components.h"
 #include "SDL_image.h"
 #include "SDL.h"
-
+#include <iostream>
+using namespace std;
 
 class SpriteRenderer : public Component
 {
@@ -50,17 +51,23 @@ class SpriteRenderer : public Component
             srcHeight = tempSurface->h;
             SDL_FreeSurface(tempSurface);
         }
+
+        void removeTexture(){
+            SDL_DestroyTexture(this->spriteSheetTexture);
+            this->spriteSheetTexture = NULL;
+        }
+
         void init() override
         {
             if(!entity->hasComponent<TransformComponent>()){
                 entity->addComponent<TransformComponent>();
             }
             transformer = &entity->getComponent<TransformComponent>();
-            srcRect.x = srcRect.y = 0;
-            srcRect.w = srcWidth;
-            srcRect.h = srcHeight;
-            destRect.w = transformer->width;
-            destRect.h = transformer->height;
+            this->srcRect.x = this->srcRect.y = 0;
+            this->srcRect.w = srcWidth;
+            this->srcRect.h = srcHeight;
+            this->destRect.w = transformer->width;
+            this->destRect.h = transformer->height;
         }
         void update() override
         {
